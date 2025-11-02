@@ -29,3 +29,13 @@
     width: auto;
     justify-self: start;
 }
+
+.modal-dialog pre {
+  font-family: "Fira Code", "Consolas", "Courier New", monospace;
+    font-size: 80%;
+    border-radius: 8px;
+      padding: 1em;
+  overflow-x: auto;               /* scroll if code is too wide */
+  border: 1px solid #333;
+    margin: 1em 0;
+}

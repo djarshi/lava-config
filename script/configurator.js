@@ -13,6 +13,7 @@ let settingCodeWhere = new Map([
   ["stealth", "#configColRight"]
 ]);
 
+
 $(document).ready(function(){
     const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
@@ -29,10 +30,44 @@ async function initializeApp() {
 
     console.log("Modes file loaded and parsed:", parsedConfigs);
 
+  for ( let configCode of loadOrdered ) {
+        parsedConfigs.forEach(config => {
+            if ( config.key != configCode ) {
+                return;
+            }
+            let where = settingCodeWhere.get(config.key);
+            let $targetNode = $(where);
+            $targetNode.append(`
+                <div class="input-group input-group-smx mb-2">
+                    <label class="input-group-text" for="inputGroupSelect01">${config.title}</label>
+                    <select class="form-select" id="select-${config.key}">
+                    </select>
+                    <a type="button" href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#${config.key}Modal">?</a>
+                </div>
+            `);
+            // modal
+            $targetNode.append(`
+                <div class="modal fade" id="${config.key}Modal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">${config.title}</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ... ${config.html}
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
+            `);
+        });
+    }
 
+    // Add the options per select.
     for (let config of parsedConfigs) {
-         $("#" + config.key + "Modal .modal-body").html(config.html);
+         // wordt al geregeld. $("#" + config.key + "Modal .modal-body").html(config.html);
          let $select = $("#select-" + config.key + "");
          $select.empty();
          for (let [value, label] of config.options) {
@@ -80,7 +115,7 @@ async function parseModesFile(filePath) {
         var event, node;
         while (event = walker.next()) {
             node = event.node;
-            console.log( "stapje " + node.type );
+            //console.log( "stapje " + node.type );
             if (event.entering && node.type === 'heading' && node.level === 1) {
                 configs.title = astNode2text(node);
             }
@@ -88,12 +123,16 @@ async function parseModesFile(filePath) {
               currentOptionTitle = astNode2text(node);
               currentOptionCode = seoFriendly(currentOptionTitle);
               configs.options.set( currentOptionCode, { title: currentOptionTitle } );
-              console.log( "option: " + currentOptionCode );
+              //console.log( "option: " + currentOptionCode );
             }
             if (event.entering && node.type === 'code_block') {
-              var tweaks = astNode2text(node);
-              configs.options.get( currentOptionCode ).tweaks = tweaks;
-              console.log( "tweaks: " + tweaks );
+
+              checkOption = configs.options.get( currentOptionCode );
+              if ( checkOption!=null ) {
+                var tweaks = astNode2text(node);
+                checkOption.tweaks = tweaks;
+                //console.log( "tweaks: " + tweaks );
+              }
             }
         }
 

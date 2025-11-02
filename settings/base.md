@@ -2,7 +2,7 @@
 
 Turns on the base lava settings like water=lava
 
-# Base Lava
+## Basics
 Basic lava settings.
 
 ```effect
