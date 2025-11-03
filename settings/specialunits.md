@@ -6,12 +6,18 @@ Adding a boss unit of some form?
 Mo special changes, just normal.
 
 ```effect
-!tweakunits
 ```
 
-## Engi boss
+## Engiman Epic Commander
 Max 1 per player extra boss unit... very strong.
 
 ```effect
-!tweakunits
+@tweakunits {ENGI_EPICCOM}
+```
+
+## Riot titan
+Titans with shielding and emp.. but not alot of dmg.
+
+```effect
+@tweakunits {ZOP_RIOT_TITAN}
 ```
