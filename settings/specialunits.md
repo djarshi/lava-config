@@ -1,4 +1,4 @@
-# Special boss unit
+# Special units
 
 Adding a boss unit of some form?
 
@@ -12,12 +12,21 @@ Mo special changes, just normal.
 Max 1 per player extra boss unit... very strong.
 
 ```effect
-@tweakunits {ENGI_EPICCOM}
+@tweakunits {EPIC_COM}
 ```
 
 ## Riot titan
 Titans with shielding and emp.. but not alot of dmg.
 
 ```effect
-@tweakunits {ZOP_RIOT_TITAN}
+@tweakdefs {RIOT_TITAN}
 ```
+
+## Riot & Epic com
+Titans with shielding and emp.. but not alot of dmg.
+
+```effect
+@tweakunits {EPIC_COM}
+@tweakdefs {RIOT_TITAN}
+```
+

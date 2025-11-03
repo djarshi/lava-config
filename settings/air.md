@@ -1,34 +1,32 @@
 # Air
 Changes to air units
 
-
 ## Sky Operations
 More expensive stuff. So air in later game and bit less then normal.
 
 ```effect
-!tide off
-!tweakunits
+!bSet unit_restrictions_noair 0
+@tweakunits ${PARATROOPERS} 
 ```
 
 ## Paratroopers
 No fall damage for dying transports.
 
 ```effect
-!tide off
-!tweakunits
+!bSet unit_restrictions_noair 0
+@tweakunits ${SKYOPS} 
 ```
 
-## Nothing special
-If your CPU can take endgame.
+## Normal air - burning CPU
+If your CPU can take endgame ¯\(ツ)/¯
 ```effect
-!tide off
-!tweakunits
+!bSet unit_restrictions_noair 0
 ```
 
 
 ## Air Off
 In case you like long games.
-Turning on EngiBoss is recommended..
+Turning on special unit 'EngiBoss' and or riot titan is recommended in this case.
 ```
-!tide grace
+!bSet unit_restrictions_noair 1
 ```

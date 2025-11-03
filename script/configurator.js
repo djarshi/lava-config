@@ -1,4 +1,4 @@
-let loadOrdered = ["base", "economy", "maps-tides", "extremebelow", "air", "lrpc", "commanders", "nukes", "specialboss", "stealth"]
+let loadOrdered = ["base", "economy", "maps-tides", "extremebelow", "air", "lrpc", "commanders", "nukes", "specialunits", "stealth"]
 let defaultWhere = "#configColRight"
 let settingCodeWhere = new Map([
   ["base", "#configColLeft"],
@@ -9,7 +9,7 @@ let settingCodeWhere = new Map([
   ["lrpc", "#configColLeft"],
   ["commanders", "#configColRight"],
   ["nukes", "#configColRight"],
-  ["specialboss", "#configColRight"],
+  ["specialunits", "#configColRight"],
   ["stealth", "#configColRight"]
 ]);
 

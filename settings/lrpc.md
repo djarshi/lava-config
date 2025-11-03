@@ -2,21 +2,29 @@
 
 What about lolcannons and other long range plasma pew pew?
 
-## All LRPC off
-Lolcannons are off pawn launchers/unitcannons too.
-```effect
-!tide off
-```
-
-## No ragnarok/calamity/starfall
-Lolcannons are off pawn launchers/unitcannons too.
-```effect
-!tide off
-```
 ## Extra towers
 Extra towers pack (Zop)
 ```
-!tide repeat
+!bSet unit_restrictions_noendgamelrpc 1
+!bSet unit_restrictions_nolrpc 1
+@tweakdefs ${EXTRA_TOWERS}
 ```
-Source: http://xuz.nl  
-Credits: Zopmaxima
+Source: https://github.com/ZopMaxima/BAR/blob/main/Tweaks/TweakDefs_ExtraTowers.lua
+Credits: ZopMaxima
+
+## No ragnarok/calamity/starfall
+Endgame LRPC are off
+```effect
+!bSet unit_restrictions_noendgamelrpc 1
+!bSet unit_restrictions_nolrpc 0
+```
+
+## All LRPC off
+Endgame and normal LRPC are off
+
+```effect
+!bSet unit_restrictions_noendgamelrpc 1
+!bSet unit_restrictions_nolrpc 1
+```
+
+

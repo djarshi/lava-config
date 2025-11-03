@@ -3,15 +3,13 @@
 Turns on the base lava settings like water=lava
 
 ## Basics
-Basic lava settings.
+Basic lava settings.  
+Remember the enemy of strategy is 
 
 ```effect
-!preset pvp
+!preset team
 !teamsize 8
 !draft_mode skill
-!unit_restrictions_nonukes 0
-!draft_mode disabled
-!unit_restrictions_notacnukes 0
 !unit_market 0
 !multiplier_builddistance 1.5
 !multiplier_buildpower 1.5
@@ -35,5 +33,6 @@ Basic lava settings.
 !experimentalextraunits 1
 !shieldsrework 1
 !nowasting all
+!bSet map_waterislava 1
 $welcome-message Settings made with configurator https://djarshi.github.io/lava-config/
 ```

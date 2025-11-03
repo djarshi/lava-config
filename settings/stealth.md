@@ -7,7 +7,7 @@ Understandable..
 No epic commando's
 
 ```effect
-!tide off
+@tweakunits ${EPIC_COMMANDO_OFF}
 ```
 
 ## Allow stealth
