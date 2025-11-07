@@ -139,10 +139,10 @@ function fillOutput()
             } else {
                 totalStr += configLine;
             }
-            totalStr += "\n";
+            totalStr += "\r\n";
         }
 
-        totalStr += "\n";
+        totalStr += "\r\n";
      });
      $("#command-output-1").val(totalStr.replace(/\n{2,}/g, '\n'));
 
