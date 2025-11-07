@@ -6,7 +6,7 @@ More expensive stuff. Air units drop their trasnsports as paratroopers.
 
 ```effect
 !bSet unit_restrictions_noair 0
-@tweakunits ${PARATROOPERS} 
+@tweakdefs ${PARATROOPERS} 
 ```
 
 ## Paratroopers
@@ -14,7 +14,7 @@ No fall damage for dying transports.
 
 ```effect
 !bSet unit_restrictions_noair 0
-@tweakunits ${SKYOPS} 
+@tweakdefs ${SKYOPS} 
 ```
 
 ## Normal air - burning CPU

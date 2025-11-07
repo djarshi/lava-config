@@ -7,7 +7,7 @@ Understandable..
 No epic commando's
 
 ```effect
-@tweakunits ${EPIC_COMMANDO_OFF}
+@tweakdefs ${EPIC_COMMANDO_OFF}
 ```
 
 ## Allow stealth
