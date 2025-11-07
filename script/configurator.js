@@ -31,7 +31,7 @@ $(document).ready(function(){
 async function initializeApp()
 {
     let tweakInputs = await Promise.all(
-      tweaks.keys().map( name => parseTweakFile(name, "settings/"+name) )
+      tweaks.keys().map( name => parseTweakFile(name, "settings/"+name+".txt") )
     );
 
     let parsedConfigs = await Promise.all(
