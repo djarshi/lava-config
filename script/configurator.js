@@ -1,3 +1,4 @@
+let configs = new Map();
 let loadOrdered = ["base", "economy", "maps-tides", "extremebelow", "air", "lrpc", "commanders", "nukes", "specialunits", "stealth"]
 let defaultWhere = "#configColRight"
 let settingCodeWhere = new Map([
@@ -20,21 +21,20 @@ $(document).ready(function(){
 });
 
 async function initializeApp() {
-//    const parsedConfigs = await Promise.all([
-//        parseModesFile('settings/air.md'),
-//        parseModesFile('settings/economy.md'),
-//    ]);
-    const parsedConfigs = await Promise.all(
+
+
+    let parsedConfigs = await Promise.all(
       loadOrdered.map(name => parseModesFile("settings/"+name+".md"))
     );
 
     console.log("Modes file loaded and parsed:", parsedConfigs);
 
-  for ( let configCode of loadOrdered ) {
+    for ( let configCode of loadOrdered ) {
         parsedConfigs.forEach(config => {
             if ( config.key != configCode ) {
                 return;
             }
+            configs.set( config.key, config );
             let where = settingCodeWhere.get(config.key);
             let $targetNode = $(where);
             $targetNode.append(`
@@ -45,6 +45,10 @@ async function initializeApp() {
                     <a type="button" href="#" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#${config.key}Modal">?</a>
                 </div>
             `);
+
+            $( "#select-" + config.key ).on( "change", function() {
+                fillOutput();
+            } );
             // modal
             $targetNode.append(`
                 <div class="modal fade" id="${config.key}Modal"  data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -69,12 +73,31 @@ async function initializeApp() {
     for (let config of parsedConfigs) {
          // wordt al geregeld. $("#" + config.key + "Modal .modal-body").html(config.html);
          let $select = $("#select-" + config.key + "");
+         $select.data("config",config.key);
          $select.empty();
          for (let [value, label] of config.options) {
-             $select.append($("<option>").val(value).text(label.title));
+             //$select.append($("<option bd->").val(value).text(label.title));
+             $select.append($("<option>").val(value).text(label.title).data("config",label.tweaks));
          }
     }
+
+    fillOutput();
 }
+
+function fillOutput()
+{
+    let totalStr = "";
+    $('select').each( function( index ) {
+        let select = $( this );
+        //configs.get(config.key);
+          console.log( index + ": " + select.data("config")  + ".." + select.find(":selected").data("config") );
+          totalStr += select.find(":selected").data("config");
+          totalStr += "\n";
+     });
+     $("#command-output-1").val(totalStr);
+
+}
+
 // get plain text from commonmark AST-node
 function astNode2text(astNode) {
   var walker = astNode.walker();

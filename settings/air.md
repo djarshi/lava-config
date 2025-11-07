@@ -2,7 +2,7 @@
 Changes to air units
 
 ## Sky Operations
-More expensive stuff. So air in later game and bit less then normal.
+More expensive stuff. Air units drop their trasnsports as paratroopers.
 
 ```effect
 !bSet unit_restrictions_noair 0

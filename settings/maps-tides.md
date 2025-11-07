@@ -47,7 +47,7 @@ A 7minute high and 5minute lower tide.
 !bset debugcommands 0
 ```
 
-## Supreme Isthmus - Hovers work
+## Supreme Isthmus - Front open & Hovers work
 Continuous low tide
 ```
 !map Supreme Isthmus v2.1
@@ -58,5 +58,21 @@ Continuous low tide
 !bset map_lavahighdwell 1
 !bset map_lavalowlevel 0
 !bset map_lavalowdwell 3600
+!bset debugcommands extremebelow -25 0.125
 ```
+
+## Pinch point
+ok.. settings.. fix ( std norm, low can be -20 -30)
+```
+!map Supreme Isthmus v2.1
+!bset map_waterislava 1
+!bset map_lavatiderhythm enabled
+!bset map_lavatidemode lavastarthigh
+!bset map_lavahighlevel 1
+!bset map_lavahighdwell 1
+!bset map_lavalowlevel 0
+!bset map_lavalowdwell 3600
+!bset debugcommands extremebelow -25 0.125
+```
+
 
