@@ -1,11 +1,19 @@
 let configs = new Map();
-let loadOrdered = ["base", "economy", "maps-tides", "extremebelow", "air", "lrpc", "commanders", "nukes", "specialunits", "stealth"]
+let tweaks = new Map([
+    ["PARATROOPERS", "sec"],
+    ["SKYOPS", "ec" ],
+    ["EPIC_CMDER", "ec" ],
+    ["EPIC_COMMANDO_OFF", "cdof"],
+    ["RIOT_TITAN", "riot"],
+    ["LAVAPACK", "lap"],
+    ["ECOPACK", "eap"]
+]);
+let loadOrdered = ["base", "economy", "maps-tides", "air", "lrpc", "commanders", "nukes", "specialunits", "stealth"]
 let defaultWhere = "#configColRight"
 let settingCodeWhere = new Map([
   ["base", "#configColLeft"],
   ["economy", "#configColLeft"],
   ["maps-tides", "#configColLeft"],
-  ["extremebelow", "#configColLeft"],
   ["air", "#configColLeft"],
   ["lrpc", "#configColLeft"],
   ["commanders", "#configColRight"],
@@ -20,8 +28,11 @@ $(document).ready(function(){
     const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
 });
 
-async function initializeApp() {
-
+async function initializeApp()
+{
+    let tweakInputs = await Promise.all(
+      tweaks.keys().map( name => parseTweakFile(name, "settings/"+name) )
+    );
 
     let parsedConfigs = await Promise.all(
       loadOrdered.map(name => parseModesFile("settings/"+name+".md"))
@@ -77,24 +88,63 @@ async function initializeApp() {
          $select.empty();
          for (let [value, label] of config.options) {
              //$select.append($("<option bd->").val(value).text(label.title));
-             $select.append($("<option>").val(value).text(label.title).data("config",label.tweaks));
+             $select.append($("<option>").val(value).text(label.title).data("config",value));
          }
     }
 
+    $(document).on('click', '#copy-command-output-1', async function () {
+      const textToCopy = $('#command-output-1').val();
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try { await navigator.clipboard.writeText(textToCopy); }
+        catch { const t=$('<textarea>').val(textToCopy).css({position:'absolute',left:'-9999px'}).appendTo('body');t[0].select();document.execCommand('copy');t.remove(); }
+      } else {
+        const t=$('<textarea>').val(textToCopy).css({position:'absolute',left:'-9999px'}).appendTo('body');t[0].select();document.execCommand('copy');t.remove();
+      }
+    });
     fillOutput();
 }
 
 function fillOutput()
 {
     let totalStr = "";
+    let tweakDefNr = 0;
+    let tweakUnitNr = 0;
     $('select').each( function( index ) {
-        let select = $( this );
-        //configs.get(config.key);
-          console.log( index + ": " + select.data("config")  + ".." + select.find(":selected").data("config") );
-          totalStr += select.find(":selected").data("config");
-          totalStr += "\n";
+    let select = $( this );
+    // const lines = text.split(/\r?\n/);
+    let cfg = configs.get(select.data("config"));
+    let option = cfg.options.get(select.find(":selected").data("config"));
+    //console.log( index + ": " + cfg.key  + ".." + option.tweaks );
+    const tweakLines = option.tweaks.split(/\r?\n/);
+    for (const configLine of tweakLines) {
+        // Trim spaces and check if it starts with @tweakdefs
+            if (configLine.trim().startsWith("@tweakdefs")) {
+            // Use regex to grab the variable name inside ${...}
+                const match = configLine.match(/\$\{([A-Za-z0-9_]+)\}/);
+                if (match) {
+                    const varName = match[1];
+                      console.log("Found variable:", varName);
+                    totalStr += "!tweakdefs" + (tweakDefNr==0 ? "" : tweakDefNr) + " " + tweaks.get(varName);
+                }
+                tweakDefNr++;
+            } else if (configLine.trim().startsWith("@tweakunits")) {
+                 // Use regex to grab the variable name inside ${...}
+                    const match = configLine.match(/\$\{([A-Za-z0-9_]+)\}/);
+                    if (match) {
+                            const varName = match[1];
+                        console.log("Found variable:", varName);
+                          totalStr += "!tweakunits" + (tweakUnitNr==0 ? "" : tweakUnitNr) + " " + tweaks.get(varName);
+                    }
+                tweakUnitNr++;
+            } else {
+                totalStr += configLine;
+            }
+            totalStr += "\n";
+        }
+
+        totalStr += "\n";
      });
-     $("#command-output-1").val(totalStr);
+     $("#command-output-1").val(totalStr.replace(/\n{2,}/g, '\n'));
 
 }
 
@@ -111,6 +161,23 @@ function astNode2text(astNode) {
   }
 
   return acc.join(' ');
+}
+
+async function parseTweakFile(key, filePath) {
+    const res = { key: "", value: "" };
+    try {
+        const response = await fetch(`${filePath}?t=${Date.now()}`);
+        if (!response.ok) {
+            throw new Error(`Could not load ${filePath}: ${response.statusText}`);
+        }
+        const text = await response.text();
+        tweaks.set( key, text)
+        return text;
+    } catch (error) {
+        console.error("Failed to parse game configs:", error);
+        const text = await response.text();
+        return "" + text;
+    }
 }
 
 async function parseModesFile(filePath) {
