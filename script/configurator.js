@@ -124,7 +124,7 @@ function fillOutput()
                 if (match) {
                     const varName = match[1];
                       console.log("Found variable:", varName);
-                    totalStr += "!tweakdefs" + (tweakDefNr==0 ? "" : tweakDefNr) + " " + tweaks.get(varName);
+                    totalStr += "!bset tweakdefs" + (tweakDefNr==0 ? "" : tweakDefNr) + " " + tweaks.get(varName);
                 }
                 tweakDefNr++;
             } else if (configLine.trim().startsWith("@tweakunits")) {
@@ -133,7 +133,7 @@ function fillOutput()
                     if (match) {
                             const varName = match[1];
                         console.log("Found variable:", varName);
-                          totalStr += "!tweakunits" + (tweakUnitNr==0 ? "" : tweakUnitNr) + " " + tweaks.get(varName);
+                          totalStr += "!bset tweakunits" + (tweakUnitNr==0 ? "" : tweakUnitNr) + " " + tweaks.get(varName);
                     }
                 tweakUnitNr++;
             } else {
