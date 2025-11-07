@@ -117,6 +117,9 @@ function fillOutput()
     //console.log( index + ": " + cfg.key  + ".." + option.tweaks );
     const tweakLines = option.tweaks.split(/\r?\n/);
     for (const configLine of tweakLines) {
+        if ( !configLine.trim() ) {
+            continue;
+        }
         // Trim spaces and check if it starts with @tweakdefs
             if (configLine.trim().startsWith("@tweakdefs")) {
             // Use regex to grab the variable name inside ${...}
