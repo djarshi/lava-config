@@ -144,7 +144,7 @@ function fillOutput()
 
         totalStr += "\r\n";
      });
-     $("#command-output-1").val(totalStr.replace(/\n{2,}/g, '\n'));
+     $("#command-output-1").val(totalStr.replace(/(\r?\n){2,}/g, '\r\n'));
 
 }
 
