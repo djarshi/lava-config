@@ -2,7 +2,7 @@
 
 Changes the lava levels during game
 
-## Supreme Isthmus - 15m grace - hovers after 15m
+## Supreme Isthmus - 10m grace - hovers after 
 A 15 minute high and rest of game lower tide which makes a wide front but not open entirely.  
 Included also managed height differential of the map with extremebelow.
 ```
@@ -12,7 +12,7 @@ Included also managed height differential of the map with extremebelow.
 !bSet map_lavalowdwell 10000
 !bSet map_waterlevel -70
 !bSet map_lavahighlevel 90
-!bSet map_lavalowlevel 70
+!bSet map_lavalowlevel 55
 !bSet map_lavatidemode lavastarthigh
 !bset debugcommands extremebelow -25 0.125
 
