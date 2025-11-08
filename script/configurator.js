@@ -7,7 +7,8 @@ let tweaks = new Map([
     ["RIOT_TITAN", "riot"],
     ["LAVAPACK", "lap"],
     ["ECOPACK", "eap"],
-    ["QOLPACK", "qol"]
+    ["QOLPACK", "qol"],
+    ["UNLIMITED_SCREAMERS", "ulscr"]
 ]);
 let loadOrdered = ["base", "economy", "maps-tides", "air", "lrpc", "commanders", "nukes", "specialunits", "stealth"]
 let defaultWhere = "#configColRight"

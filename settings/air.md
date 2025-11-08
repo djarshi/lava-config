@@ -2,23 +2,25 @@
 Changes to air units
 
 ## Sky Operations
-More expensive stuff. Air units drop their trasnsports as paratroopers.
+More expensive stuff. Air units drop their trasnsports as paratroopers as well as AA is improved.
+
+```effect
+!bSet unit_restrictions_noair 0
+@tweakdefs ${SKYOPS}
+@tweakdefs ${UNLIMITED_SCREAMERS}
+```
+
+## Paratroopers
+No fall damage for dying transports. AA is improved though.
 
 ```effect
 !bSet unit_restrictions_noair 0
 @tweakdefs ${PARATROOPERS} 
-```
-
-## Paratroopers
-No fall damage for dying transports.
-
-```effect
-!bSet unit_restrictions_noair 0
-@tweakdefs ${SKYOPS} 
+@tweakdefs ${UNLIMITED_SCREAMERS}
 ```
 
 ## Normal air - burning CPU
-If your CPU can take endgame ¯\(ツ)/¯
+If your CPU can take endgame ¯\\(ツ)/¯
 ```effect
 !bSet unit_restrictions_noair 0
 ```
@@ -26,7 +28,7 @@ If your CPU can take endgame ¯\(ツ)/¯
 
 ## Air Off
 In case you like long games.
-Turning on special unit 'EngiBoss' and or riot titan is recommended in this case.
+Turning on special unit 'EngiBoss' and or riot titan is highly recommended in this case.
 ```
 !bSet unit_restrictions_noair 1
 ```
