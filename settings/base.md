@@ -28,7 +28,7 @@ Remember the enemy of strategy is
 !multiplier_turnrate 1
 !multiplier_weapondamage 1
 !multiplier_weaponrange 1
-!experimentalshields bounceeverything
+!experimentalshields absorbeverything
 !experimentallegionfaction 1
 !experimentalextraunits 1
 !shieldsrework 1
