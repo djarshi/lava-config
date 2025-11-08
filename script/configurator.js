@@ -6,7 +6,8 @@ let tweaks = new Map([
     ["EPIC_COMMANDO_OFF", "cdof"],
     ["RIOT_TITAN", "riot"],
     ["LAVAPACK", "lap"],
-    ["ECOPACK", "eap"]
+    ["ECOPACK", "eap"],
+    ["QOLPACK", "qol"]
 ]);
 let loadOrdered = ["base", "economy", "maps-tides", "air", "lrpc", "commanders", "nukes", "specialunits", "stealth"]
 let defaultWhere = "#configColRight"
@@ -66,11 +67,11 @@ async function initializeApp()
                     <div class="modal-dialog modal-lg modal-dialog-scrollable">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">${config.title}</h1>
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
-                                ... ${config.html}
+                                ${config.html}
                             </div>
 
                         </div>
@@ -126,7 +127,7 @@ function fillOutput()
                 const match = configLine.match(/\$\{([A-Za-z0-9_]+)\}/);
                 if (match) {
                     const varName = match[1];
-                      console.log("Found variable:", varName);
+                    console.log("Found variable:", varName);
                     totalStr += "!bset tweakdefs" + (tweakDefNr==0 ? "" : tweakDefNr) + " " + tweaks.get(varName);
                 }
                 tweakDefNr++;

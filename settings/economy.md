@@ -2,7 +2,7 @@
 
 Adds the t3 afuses, mexes, geo
 
-## Djarshi lavapack 4.8 (+epic+legendary)
+## Djarshi lavapack 4.8 (+epic+legendary+QoL)
 This is the lavapack with t3 afuses, mexes, geo and some price changes for behemoth & turns sea off.
 Modifications:
 - Changes epic converter size to footprint of an AFUS.
@@ -16,25 +16,28 @@ Modifications:
 ```effect
 !scavunitsforplayers 1
 @tweakdefs ${LAVAPACK}
+@tweakdefs ${QOLPACK}
 !bSet quick_start factory_discount
 ```
 
-## ZopMaxima ecopack (+epic)
+## ZopMaxima ecopack (+epic+QoL)
 Adds ZopMaxima's eco pack
 
 ```effect
 !scavunitsforplayers 1
 @tweakdefs ${ECOPACK}
+@tweakdefs ${QOLPACK}
 !bSet quick_start factory_discount
 ```
 
-## ZopMaxima ecopack + Djarshi lavapack (+epic+legendary)
+## ZopMaxima ecopack + Djarshi lavapack (+epic+legendary+QoL)
 ddd
 ```effect
 !scavunitsforplayers 1
 
 @tweakdefs ${LAVAPACK}
 @tweakdefs ${ECOPACK}
+@tweakdefs ${QOLPACK}
 !bSet quick_start factory_discount
 ```
 

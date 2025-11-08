@@ -9,9 +9,9 @@ It keeps being buggy if alot of nuke launchers. So off is a safe choice.
 !unit_restrictions_nonukes 1
 ```
 
-## Nukes allowed but slower speed
-It keeps being buggy if alot of nuke launchers. So off is a safe choice.
+## Nukes allowed 
+Are we sure here?
 ```effect
 !unit_restrictions_nonukes 0
 ```
-*Credits:* ZopMaxima addon for slower nukes
+
