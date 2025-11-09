@@ -8,7 +8,8 @@ let tweaks = new Map([
     ["LAVAPACK", "lap"],
     ["ECOPACK", "eap"],
     ["QOLPACK", "qol"],
-    ["UNLIMITED_SCREAMERS", "ulscr"]
+    ["UNLIMITED_SCREAMERS", "ulscr"],
+    ["AIRLIMIT", "airl"],
 ]);
 let loadOrdered = ["base", "economy", "maps-tides", "air", "lrpc", "commanders", "nukes", "specialunits", "stealth"]
 let defaultWhere = "#configColRight"

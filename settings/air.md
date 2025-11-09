@@ -25,6 +25,23 @@ If your CPU can take endgame ¯\\(ツ)/¯
 !bSet unit_restrictions_noair 0
 ```
 
+## Reduced air
+
+## Air limit tweak
+
+Sharing my tweak meant to change the way air is played in lava games. Disables T3 air, and limits every other air unit to 10 per player, except for bombers, dragons, liches,.. those are 1 per player only.
+
+- T3 air disabled
+- Air units are 10 per player.
+- Bombers and heavy air is 1 per player.
+
+Great when used along lootboxes, which result in interesting early to mid game air fights. Still allows for air play at the cost of higher APM, but does not block the sun. Air attacks are possible, yet require coordination and can be thwarted by porcing behind AA.  
+
+Credits: slupka  
+
+```
+@tweakunits ${AIRLIMIT}
+```
 
 ## Air Off
 In case you like long games.
