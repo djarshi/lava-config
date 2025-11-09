@@ -11,6 +11,7 @@ Remember the enemy of strategy is
 !teamsize 8
 !draft_mode skill
 !unit_market 0
+!bSet ranked_game 0
 !multiplier_builddistance 1.5
 !multiplier_buildpower 1.5
 !multiplier_buildtimecost 1
