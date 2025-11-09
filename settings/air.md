@@ -9,6 +9,7 @@ More expensive stuff. Air units drop their trasnsports as paratroopers as well a
 @tweakdefs ${SKYOPS}
 @tweakdefs ${UNLIMITED_SCREAMERS}
 ```
+**Credits:** `ZopMaxima`  
 
 ## Paratroopers
 No fall damage for dying transports. AA is improved though.
@@ -18,6 +19,7 @@ No fall damage for dying transports. AA is improved though.
 @tweakdefs ${PARATROOPERS} 
 @tweakdefs ${UNLIMITED_SCREAMERS}
 ```
+**Credits:** `ZopMaxima`  
 
 ## Normal air - burning CPU
 If your CPU can take endgame ¯\\(ツ)/¯
@@ -33,8 +35,8 @@ This is meant to change the way air is played in lava games. Disables T3 air, an
 - Air units are 10 per player.
 - Bombers and heavy air is 1 per player.
 
-Great when used along lootboxes, which result in interesting early to mid game air fights. Still allows for air play at the cost of higher APM, but does not block the sun. Air attacks are possible, yet require coordination and can be thwarted by porcing behind AA.  
-Great when lootboxes is on, Then you need a minimal air..  
+This still allows for air play at the cost of higher APM, but does not block the sun. Air attacks are possible, yet require coordination and can be thwarted by porcing behind AA.  
+Great when lootboxes is on, Then you need a minimal airforce to grab the lootboxes.  
 Also great if you want to reduce some spam and SkyOps is not enough.
 
 **Credits:** `slupka`  
