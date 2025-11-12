@@ -25,7 +25,7 @@ Remember the enemy of strategy is
 !multiplier_metalextraction 1
 !multiplier_radarrange 1
 !multiplier_resourceincome 1
-!multiplier_shieldpower 2
+!multiplier_shieldpower 1
 !multiplier_turnrate 1
 !multiplier_weapondamage 1
 !multiplier_weaponrange 1

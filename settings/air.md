@@ -7,7 +7,6 @@ More expensive stuff. Air units drop their trasnsports as paratroopers as well a
 ```effect
 !bSet unit_restrictions_noair 0
 @tweakdefs ${SKYOPS}
-@tweakdefs ${UNLIMITED_SCREAMERS}
 ```
 **Credits:** `ZopMaxima`  
 
