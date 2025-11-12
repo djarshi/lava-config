@@ -32,7 +32,6 @@ Remember the enemy of strategy is
 !experimentalshields absorbeverything
 !experimentallegionfaction 1
 !experimentalextraunits 1
-!shieldsrework 1
 !bSet map_waterislava 1
 $welcome-message Settings made with configurator https://djarshi.github.io/lava-config/
 ```
