@@ -3,7 +3,25 @@
 Changes the lava levels during game
 
 ## Supreme Isthmus - 10m grace - hovers after 
-A 15 minute high and rest of game lower tide which makes a wide front but not open entirely.  
+A 10 minute high and rest of game lower tide which makes a wide front but not open entirely.  
+Included also managed height differential of the map with extremebelow.  
+Islands have some buildspace for AA/lrpcs if on. This allows for some more tactics, but also annoyances.  
+  
+```
+!map Supreme Isthmus v2.1
+!bSet map_lavatiderhythm enabled
+!bSet map_lavahighdwell 600
+!bSet map_lavalowdwell 10000
+!bSet map_waterlevel -100
+!bSet map_lavahighlevel 120
+!bSet map_lavalowlevel 74
+!bSet map_lavatidemode lavastarthigh
+!bset debugcommands extremebelow -25 0.125
+
+```
+
+## Supreme Isthmus - 10m grace - slight higher lava 
+A 10 minute high and rest of game lower tide which makes a wide front but not open entirely.  
 Included also managed height differential of the map with extremebelow.
 ```
 !map Supreme Isthmus v2.1
