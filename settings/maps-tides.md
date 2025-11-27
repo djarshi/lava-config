@@ -37,7 +37,8 @@ Included also managed height differential of the map with extremebelow.
 ```
 
 ## Supreme Isthmus - 7/5 tides
-This turns tides off, so lava will stay at a constant position.
+This is a 7 minute high, 5 minute low tide. 7minute middle is closer for t1 units.   
+It's enough to cross the middle for 5minutes..
 ```effect
 !map Supreme Isthmus v2.1
 !bSet map_lavatiderhythm enabled
