@@ -108,7 +108,7 @@ A simple lava experience if you have a low amount of players. Lava stays high fo
 !bset map_waterlevel -20
 ```
 
-## 2 Lava Continents
+## PtaQ map - 2 Lava Continents
 2 big landmasses seperated by a shallow lava river. Hovers can cross it, and otehr units with enough health. The lava river is not wide, making artillery attacks possible between the islands.
 After 10 minutes the lava between the islands lowers, making them one, but the surrounding lava does not receed.
 ```
@@ -123,7 +123,7 @@ After 10 minutes the lava between the islands lowers, making them one, but the s
 !bset map_waterlevel -30
 ```
 
-## Lava FFA metalmap
+## Adamantium Factory Lava FFA metalmap
 Huge amount of metal islands seperated by lava. lava is up for 4 minutes, and then stays low for 5
 Whats special about this configuration is that lava is not deep at all and doesnt slow much.
 ```
