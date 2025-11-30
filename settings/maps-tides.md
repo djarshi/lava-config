@@ -94,4 +94,46 @@ ok.. settings.. fix ( std norm, low can be -20 -30)
 !bset debugcommands extremebelow -25 0.125
 ```
 
+## 2v2 Lava
+A simple lava experience if you have a low amount of players. Lava stays high for 10 minutes, and then for 5 minutes the lava of the bottom half completel receeds.
+```
+!map FolsomDamR 1.17
+!bset map_waterislava 1
+!bset map_lavatiderhythm enabled
+!bset map_lavatidemode lavastarthigh
+!bset map_lavahighlevel 70
+!bset map_lavahighdwell 600
+!bset map_lavalowlevel 0
+!bset map_lavalowdwell 300
+!bset map_waterlevel -20
+```
 
+## 2 Lava Continents
+2 big landmasses seperated by a shallow lava river. Hovers can cross it, and otehr units with enough health. The lava river is not wide, making artillery attacks possible between the islands.
+After 10 minutes the lava between the islands lowers, making them one, but the surrounding lava does not receed.
+```
+!map Why did I let Ptaq talk me into this 1.0
+!bset map_waterislava 1
+!bset map_lavatiderhythm enabled
+!bset map_lavatidemode lavastarthigh
+!bset map_lavahighlevel 25
+!bset map_lavahighdwell 600
+!bset map_lavalowlevel 0
+!bset map_lavalowdwell 300
+!bset map_waterlevel -30
+```
+
+## Lava FFA metalmap
+Huge amount of metal islands seperated by lava. lava is up for 4 minutes, and then stays low for 5
+Whats special about this configuration is that lava is not deep at all and doesnt slow much.
+```
+!map Adamantium Factory V1
+!bset map_waterislava 1
+!bset map_lavatiderhythm enabled
+!bset map_lavatidemode lavastarthigh
+!bset map_lavahighlevel 205
+!bset map_lavahighdwell 600
+!bset map_lavalowlevel 180
+!bset map_lavalowdwell 300
+!bset map_waterlevel 0
+```
