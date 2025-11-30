@@ -94,7 +94,7 @@ ok.. settings.. fix ( std norm, low can be -20 -30)
 !bset debugcommands extremebelow -25 0.125
 ```
 
-## 2v2 Lava
+## FolsomDamR 2v2 Lava
 A simple lava experience if you have a low amount of players. Lava stays high for 10 minutes, and then for 5 minutes the lava of the bottom half completel receeds.
 ```
 !map FolsomDamR 1.17
