@@ -2,14 +2,14 @@
 
 Adds the t3 afuses, mexes, geo
 
-## Djarshi lavapack 4.9 (+epic+legendary+QoL)
+## Djarshi lavapack 4.10 (+epic+legendary+QoL)
 This is the lavapack with t3 afuses, mexes, geo and some price changes for behemoth & turns sea off.
 Modifications:
 - Changes epic converter size to footprint of an AFUS.
 - Adds Epic Metal extractor (costly to keep functioning tho)
 - Adds Epic Geothermal powerplant with shield.
 - Adds Legendary AFUS (1 per player)
-- Behemoths and Sol invictus are way more pricey (x3 metal)
+- Behemoths x2.5 price, legion mech x1.5
 - Pawn launcher & unit cannons are removed.
 - Disables sea lab functions
 
