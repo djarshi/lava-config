@@ -2,7 +2,7 @@
 
 Adds the t3 afuses, mexes, geo
 
-## Djarshi lavapack 4.10 (+epic+legendary+QoL)
+## Djarshi lavapack 4.11 (+epic+legendary+QoL)
 This is the lavapack with t3 afuses, mexes, geo and some price changes for behemoth & turns sea off.
 Modifications:
 - Changes epic converter size to footprint of an AFUS.
