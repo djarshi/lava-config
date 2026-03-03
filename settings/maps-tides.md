@@ -75,6 +75,7 @@ Continuous low tide
 !bset map_lavatidemode lavastarthigh
 !bset map_lavahighlevel 1
 !bset map_lavahighdwell 1
+!bSet map_waterlevel 0
 !bset map_lavalowlevel 0
 !bset map_lavalowdwell 3600
 !bset debugcommands extremebelow -25 0.125
