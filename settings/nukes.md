@@ -3,7 +3,7 @@
 Thingsa about nukes.. they stil can be buggy.
 
 ## Just big expensive nuke
-It keeps being buggy if alot of nuke launchers. So off is a safe choice.
+One big expensive ICBM. if you have like 15-20M metal costs
 
 ```effect
 !unit_restrictions_nonukes 0
