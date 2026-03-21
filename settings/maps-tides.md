@@ -52,15 +52,28 @@ It's enough to cross the middle for 5minutes..
 ```
 
 ## Supreme Isthmus - 5/5 superlowtide
-A 15 minute high and rest of game lower tide which makes a wide front but not open entirely
-A 7minute high and 5minute lower tide.
+On a 5minute cycle. Lava goes lower so a very wide front is available.
 ```
 !map Supreme Isthmus v2.1
 !bSet map_lavatiderhythm enabled
-!bSet map_lavahighdwell 420
+!bSet map_lavahighdwell 300
 !bSet map_lavalowdwell 300
 !bSet map_waterlevel -70
 !bSet map_lavahighlevel 90
+!bSet map_lavalowlevel 0
+!bSet map_lavatidemode lavastarthigh
+!bset debugcommands 0
+```
+
+## Supreme Isthmus - 5/5 poof lava gone
+On a 5minute cycle. Lava goes extreme low so its not there.
+```
+!map Supreme Isthmus v2.1
+!bSet map_lavatiderhythm enabled
+!bSet map_lavahighdwell 300
+!bSet map_lavalowdwell 300
+!bSet map_waterlevel -150
+!bSet map_lavahighlevel 150
 !bSet map_lavalowlevel 0
 !bSet map_lavatidemode lavastarthigh
 !bset debugcommands 0
