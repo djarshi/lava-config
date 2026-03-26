@@ -10,6 +10,7 @@ let tweaks = new Map([
     ["QOLPACK", "qol"],
     ["UNLIMITED_SCREAMERS", "ulscr"],
     ["AIRLIMIT", "airl"],
+    ["ONE_BIG_NUKE", "airl"],
 ]);
 let loadOrdered = ["base", "economy", "maps-tides", "air", "lrpc", "commanders", "nukes", "specialunits", "stealth"]
 let defaultWhere = "#configColRight"
@@ -34,7 +35,7 @@ $(document).ready(function(){
 async function initializeApp()
 {
     let tweakInputs = await Promise.all(
-      tweaks.keys().map( name => parseTweakFile(name, "settings/"+name+".txt") )
+      tweaks.keys().map( name => parseTweakFile(name, "tweaks/"+name+".txt") )
     );
 
     let parsedConfigs = await Promise.all(
