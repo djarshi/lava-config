@@ -1,60 +1,57 @@
--- LavaT3pack Djarshi v4.14
+-- LavaPack (Djarshi) v4.15
 local mods = Spring.GetModOptions()
-local noNukes = mods.unit_restrictions_nonukes
-local noNukeDef = mods.unit_restrictions_noantinuke
-local debugFast = false
+local noSea = mods.map_waterislava
+local uDefs = UnitDefs or {}
 local races = {"arm", "cor", "leg"}
-local a, b, c, d, e, f, g =
-    UnitDefs or {},
-    {"arm", "cor", "leg"},
-    table.merge,
-    {arm = "Armada ", cor = "Cortex ", leg = "Legion "},
-    "_taxed",
-    1.5,
-    table.contains
+local cps = 'customparams'
+local allBOs = {}
 
+for id, def in pairs(uDefs) do
+	if def and def.buildoptions then
+		table.insert(allBOs, id)
+	end
+end
+local function round10(n)
+	return math.floor(n * 0.1) * 10
+end
 local function addC(conName, newUnit)
     if
-        UnitDefs[conName] and UnitDefs[conName].buildoptions and
-            not table.contains(UnitDefs[conName].buildoptions, newUnit)
+        uDefs[conName] and uDefs[conName].buildoptions and
+            not table.contains(uDefs[conName].buildoptions, newUnit)
      then
-        table.insert(UnitDefs[conName].buildoptions, newUnit)
+        table.insert(uDefs[conName].buildoptions, newUnit)
     end
 end
-
-local function addUnitToBO(newUnit, ...)
+local function addU2BO(newUnit, ...)
     local rest = {...}
     for i, v in ipairs(rest) do
         addC(v, newUnit)
     end
 end
-
 local function mergeToNew(u, newU, obj)
-    if UnitDefs[u] and not UnitDefs[newU] then
-        UnitDefs[newU] = table.merge(UnitDefs[u], obj)
+    if uDefs[u] and not uDefs[newU] then
+        uDefs[newU] = table.merge(uDefs[u], obj)
     end
-    return UnitDefs[newU]
+    return uDefs[newU]
 end
-
-
-if (debugFast) then
-  -- T2 air buildable by t1
-  addUnitToBO("armaca", "armck", "armca", "armcv")
-  addUnitToBO("coraca", "corack", "corca", "corcv")
-  addUnitToBO("legaca", "legck", "legca", "legcv")
+local function rmvBOArr(conIDs, id)
+	for i = 1, #conIDs do
+		rmvBO(conIDs[i], id)
+	end
 end
-
+local function rmvID(id)
+	rmvBOArr(allBOs, id)
+end
 local ym =
     "h cbbybjyybc bjbjjbbjjb yjbjbjjbbb ybjjjbjjjy jbjbjjjbjb bjbjjjbjbj yjjjbjjjby bbbjjbjbjy bjjbbjjbjb cbyyjbybbc"
-UnitDefs["armageo"].yardmap = ym
-UnitDefs["corageo"].yardmap = ym
-UnitDefs["armuwageo"].yardmap = ym
-UnitDefs["coruwageo"].yardmap = ym
-if (UnitDefs["legageo"]) then
-    UnitDefs["legageo"].yardmap = ym
+uDefs["armageo"].yardmap = ym
+uDefs["corageo"].yardmap = ym
+uDefs["armuwageo"].yardmap = ym
+uDefs["coruwageo"].yardmap = ym
+if (uDefs["legageo"]) then
+    uDefs["legageo"].yardmap = ym
 end
-
-for l, m in pairs(b) do
+for l, m in pairs({"arm", "cor", "leg"}) do
     local n, o, p = m == "arm", m == "cor", m == "leg"
     mergeToNew(
         m .. "nanotct2",
@@ -72,6 +69,7 @@ for l, m in pairs(b) do
             mass = 37200,
             sightdistance = 625,
             workertime = 3000,
+            reclaimspeed = 2000,
             canrepeat = true,
             objectname = p and "Units/legnanotcbase.s3o" or o and "Units/CORRESPAWN.s3o" or "Units/ARMRESPAWN.s3o",
             customparams = {
@@ -163,20 +161,17 @@ for l, m in pairs(b) do
             }
         }
     )
-
     for l, q in pairs({m .. "nanotc", m .. "nanotct2"}) do
-        if a[q] then
-            a[q].canrepeat = true
+        if uDefs[q] then
+            uDefs[q].canrepeat = true
         end
     end
-
     local AFU = m .. "afust3"
-    if a[AFU] then
-        a[AFU].explodeas = "customfusionexplo"
-        a[AFU].selfdestructas = "advancedFusionExplosionSelfd"
+    if uDefs[AFU] then
+        uDefs[AFU].explodeas = "customfusionexplo"
+        uDefs[AFU].selfdestructas = "advancedFusionExplosionSelfd"
     end
 end
-
 local newAfus =
     mergeToNew(
     "lootboxplatinum",
@@ -247,7 +242,7 @@ local newAfus =
     }
 )
 
-local normAfus = UnitDefs["armafus"]
+local normAfus = uDefs["armafus"]
 if (normAfus) then
     newAfus.metalcost = normAfus.metalcost * 30
     newAfus.energycost = normAfus.energycost * 30
@@ -257,11 +252,9 @@ if (normAfus) then
     newAfus.maxthisunit = 1
 end
 
-addUnitToBO("afuslegendary", "armack", "armaca", "armacv")
-addUnitToBO("afuslegendary", "corack", "coraca", "coracv")
-addUnitToBO("afuslegendary", "legack", "legaca", "legacv")
-
--- t3mex
+addU2BO("afuslegendary", "armack", "armaca", "armacv")
+addU2BO("afuslegendary", "corack", "coraca", "coracv")
+addU2BO("afuslegendary", "legack", "legaca", "legacv")
 local newT3Mex =
     mergeToNew(
     "armmoho",
@@ -289,54 +282,87 @@ local newT3Mex =
     }
 )
 
-addUnitToBO("t3mmex", "armack", "armaca", "armacv")
-addUnitToBO("t3mmex", "corack", "coraca", "coracv")
-addUnitToBO("t3mmex", "legack", "legaca", "legacv")
+addU2BO("t3mmex", "armack", "armaca", "armacv")
+addU2BO("t3mmex", "corack", "coraca", "coracv")
+addU2BO("t3mmex", "legack", "legaca", "legacv")
 
-UnitDefs["corjugg"].metalcost = UnitDefs["corjugg"].metalcost * 2.5
-if (UnitDefs["legeheatraymech"]) then
-    UnitDefs["legeheatraymech"].metalcost = UnitDefs["legeheatraymech"].metalcost * 1.5
+uDefs["corjugg"].metalcost = uDefs["corjugg"].metalcost * 2.5
+if (uDefs["legeheatraymech"]) then
+    uDefs["legeheatraymech"].metalcost = uDefs["legeheatraymech"].metalcost * 1.5
 end
-if (UnitDefs["legeheatraymech_old"]) then
-    UnitDefs["legeheatraymech_old"].metalcost = UnitDefs["legeheatraymech_old"].metalcost * 1.5
+if (uDefs["legeheatraymech_old"]) then
+    uDefs["legeheatraymech_old"].metalcost = uDefs["legeheatraymech_old"].metalcost * 1.5
 end
 
-UnitDefs["armbotrail"].health = 0
-UnitDefs["armbotrail"].maxthisunit = 0
+uDefs["armbotrail"].health = 0
+uDefs["armbotrail"].maxthisunit = 0
 
-addUnitToBO("armnanotct3", "armack", "armaca", "armacv")
-addUnitToBO("armageot3", "armack", "armaca", "armacv")
-addUnitToBO("cornanotct3", "corack", "coraca", "coracv")
-addUnitToBO("corageot3", "corack", "coraca", "coracv")
-addUnitToBO("legnanotct3", "legack", "legaca", "legacv")
-addUnitToBO("legageot3", "legack", "legaca", "legacv")
+addU2BO("armnanotct3", "armack", "armaca", "armacv")
+addU2BO("armageot3", "armack", "armaca", "armacv")
+addU2BO("cornanotct3", "corack", "coraca", "coracv")
+addU2BO("corageot3", "corack", "coraca", "coracv")
+addU2BO("legnanotct3", "legack", "legaca", "legacv")
+addU2BO("legageot3", "legack", "legaca", "legacv")
 
 -- cross faction conplane builds.
-addUnitToBO( "armaca", "legapt3", "corapt3" )
-addUnitToBO( "coraca", "armapt3", "legapt3" )
-addUnitToBO( "legaca", "corapt3", "armapt3" )
+addU2BO( "armaca", "legapt3", "corapt3" )
+addU2BO( "coraca", "armapt3", "legapt3" )
+addU2BO( "legaca", "corapt3", "armapt3" )
 
-UnitDefs["armvulc"].metalcost = UnitDefs["armvulc"].metalcost * 10
-UnitDefs["corbuzz"].metalcost = UnitDefs["corbuzz"].metalcost * 10
-if (UnitDefs["legstarfall"]) then
-    UnitDefs["legstarfall"].metalcost = UnitDefs["legstarfall"].metalcost * 10
+uDefs["armvulc"].metalcost = uDefs["armvulc"].metalcost * 10
+uDefs["corbuzz"].metalcost = uDefs["corbuzz"].metalcost * 10
+if (uDefs["legstarfall"]) then
+    uDefs["legstarfall"].metalcost = uDefs["legstarfall"].metalcost * 10
 end
 for _, unit in ipairs({"armsy","armasy","corsy","corasy", "legsy","legasy"}) do
-    if ( UnitDefs[unit] ) then
-        UnitDefs[unit].health = 0
-        UnitDefs[unit].maxthisunit = 0
+    if ( uDefs[unit] ) then
+        uDefs[unit].health = 0
+        uDefs[unit].maxthisunit = 0
     end
 end
 -- converter size fix
 for l, m in pairs({"armmmkrt3", "cormmkrt3", "legadveconvt3"}) do
-    if (UnitDefs[m]) then
-        UnitDefs[m] = table.merge(UnitDefs[m], {footprintx = 6, footprintz = 6})
+    if (uDefs[m]) then
+        uDefs[m] = table.merge(uDefs[m], {footprintx = 6, footprintz = 6})
     end
 end
 -- cheapermake
-for name, unitDef in pairs(UnitDefs) do
+for name, unitDef in pairs(uDefs) do
   if ( unitDef.energymake > 0 ) then
      unitDef.metalcost = (unitDef.metalcost or 0) * 0.9
      unitDef.energycost = (unitDef.energycost or 0) * 0.9
   end
+end
+-- mex/geo fix underwater
+if noSea then
+	local mwd = 'minwaterdepth'
+	local uwRef = uDefs['coruwgeo']
+	uDefs['armuwgeo'][mwd] = uwRef[mwd]
+	for id, def in pairs(uDefs) do
+		if def['customparams'].metal_extractor or def['customparams'].geothermal then
+			def.maxwaterdepth = uwRef.maxwaterdepth
+		end
+        local min = def[mwd]
+        if hasHoverTide and min then
+            local isEco = def.energymake or def.metalmake or def[cps].unitgroup == 'energy' or def[cps].unitgroup == 'metal'
+            if isEco or def.buildoptions or def.waterline == nil then
+                rmvID(id)
+            else
+                def.waterline = 0
+                def[mwd] = 1
+                def[cps] = def[cps] or {}
+                def[cps].enabled_on_no_sea_maps = true
+            end
+        elseif min and min > 0 then
+            rmvID(id)
+        end
+        if def.cruisealtitude then
+            if def.cansubmerge then
+                def.cansubmerge = false
+            end
+            if def.maxwaterdepth then
+                def.maxwaterdepth = 0
+            end
+        end
+    end
 end
