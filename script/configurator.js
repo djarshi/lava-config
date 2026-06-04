@@ -159,7 +159,7 @@ function fillOutput()
 
     const stockpileLimit = $('#custom-stockpile-input').val();
     if (stockpileLimit) {
-        const luaString = `-- TacMissileNerf(Ini_Wolf) local uDefs=UnitDefs or{} local targets={'armemp','cortron','legperdition'} for _,n in ipairs(targets) do local d=uDefs[n] if d and d.weapondefs then for _,w in pairs(d.weapondefs) do w.customparams=w.customparams or{} w.customparams.stockpilelimit="${stockpileLimit}" end end end`;
+        const luaString = `--[[ TacMissileNerf(Ini_Wolf) ]] local uDefs=UnitDefs or{} local targets={'armemp','cortron','legperdition'} for _,n in ipairs(targets) do local d=uDefs[n] if d and d.weapondefs then for _,w in pairs(d.weapondefs) do w.customparams=w.customparams or{} w.customparams.stockpilelimit="${stockpileLimit}" end end end`;
         const cleanB64 = btoa(unescape(encodeURIComponent(luaString)))
             .replace(/\+/g, '-')
             .replace(/\//g, '_')
