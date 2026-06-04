@@ -2,10 +2,10 @@
 
 Turns on the base lava settings like water=lava
 
-## Basics++
-Basic lava settings.  
-More starting resources & bb turret
+## Eco insanity
+More starting resources & starting base budget & bb turret
 Remember the enemy of strategy is too much Eco
+This version is stronger in terms of eco. However this will flatten out differences that arise from people who know how to scale up and those who do not
 
 ```effect
 !preset team
@@ -78,4 +78,5 @@ $welcome-message Settings made with configurator https://djarshi.github.io/lava-
 !bSet quick_start factory_discount
 
 ```
+
 
