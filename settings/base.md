@@ -2,7 +2,7 @@
 
 Turns on the base lava settings like water=lava
 
-## Basics++
+## Basics Plus Plus
 Basic lava settings.  
 More starting resources & bb turret
 Remember the enemy of strategy is too much Eco
