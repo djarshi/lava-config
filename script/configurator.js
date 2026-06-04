@@ -105,6 +105,11 @@ async function initializeApp()
         const t=$('<textarea>').val(textToCopy).css({position:'absolute',left:'-9999px'}).appendTo('body');t[0].select();document.execCommand('copy');t.remove();
       }
     });
+
+    $('#custom-stockpile-input').on('input', function() {
+        fillOutput();
+    });
+
     fillOutput();
 }
 
@@ -151,6 +156,17 @@ function fillOutput()
 
         totalStr += "\r\n";
      });
+
+    const stockpileLimit = $('#custom-stockpile-input').val();
+    if (stockpileLimit) {
+        const luaString = `-- TacMissileNerf(Ini_Wolf) local uDefs=UnitDefs or{} local targets={'armemp','cortron','legperdition'} for _,n in ipairs(targets) do local d=uDefs[n] if d and d.weapondefs then for _,w in pairs(d.weapondefs) do w.customparams=w.customparams or{} w.customparams.stockpilelimit="${stockpileLimit}" end end end`;
+        const cleanB64 = btoa(unescape(encodeURIComponent(luaString)))
+            .replace(/\+/g, '-')
+            .replace(/\//g, '_')
+            .replace(/=/g, '');
+        totalStr += `!bset tweakdefs9 ${cleanB64}\r\n`;
+    }
+
      $("#command-output-1").val(totalStr.replace(/(\r?\n){2,}/g, '\r\n'));
 
 }
