@@ -2,6 +2,7 @@ let configs = new Map();
 let tweaks = new Map([
     ["PARATROOPERS", "sec"],
     ["SKYOPS", "ec" ],
+    ["SKYOPS_NOPA", "ec" ],
     ["EPIC_CMDER", "ec" ],
     ["EPIC_COMMANDO_OFF", "cdof"],
     ["RIOT_TITAN", "riot"],

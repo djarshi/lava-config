@@ -1,6 +1,16 @@
 # Air
 Changes to air units
 
+## Sky Operations Nopara
+More expensive stuff. AA is improved. Conplanes original cost.
+
+```effect
+!bSet unit_restrictions_noair 0
+@tweakdefs ${SKYOPS_NOPA}
+```
+**Credits:** `ZopMaxima`  
+
+
 ## Sky Operations
 More expensive stuff. Air units drop their trasnsports as paratroopers as well as AA is improved.
 
