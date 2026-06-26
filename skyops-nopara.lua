@@ -167,7 +167,7 @@ if tweakAirPrice then
 	for id, def in pairs(uDefs) do
 		local ca = def.cruisealtitude
 		if ca and ca < cruiseOrbit then
-			if def.weapondefs and def.buildoptions and #def.buildoptions > 0 then
+			if def.weapondefs and ()def.workertime == nil or def.workertime == 0) then
 				local mcMul = math.max(1, math.min(airMCCutoff / def.metalcost, airMCMul))
 				def.buildtime = math.floor(def.buildtime * ((mcMul + airECMul) * 0.5))
 				def.metalcost = math.floor(def.metalcost * mcMul)
