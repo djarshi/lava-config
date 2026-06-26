@@ -1,4 +1,4 @@
---Lava Sky Ops (Zop) nopobr
+--Lava Sky Ops (Zop)
 local mods = Spring.GetModOptions()
 local uDefs = UnitDefs or {}
 local cps = 'customparams'
@@ -167,7 +167,7 @@ if tweakAirPrice then
 	for id, def in pairs(uDefs) do
 		local ca = def.cruisealtitude
 		if ca and ca < cruiseOrbit then
-			if def.weapondefs and ()def.workertime == nil or def.workertime == 0) then
+			if def.weapondefs then
 				local mcMul = math.max(1, math.min(airMCCutoff / def.metalcost, airMCMul))
 				def.buildtime = math.floor(def.buildtime * ((mcMul + airECMul) * 0.5))
 				def.metalcost = math.floor(def.metalcost * mcMul)
@@ -218,6 +218,20 @@ if tweakAirTrans then
 			end
 		elseif def.canmove then
 			def[cps] = def[cps] or {}
+			def[cps].paratrooper = true
+			local fdm = 'fall_damage_multiplier'
+			if not def[cps][fdm] then
+			    -- movementclass COMMANDERBOT
+				if def.movementclass and string.find(def.movementclass, 'HOVER') then
+					def[cps][fdm] = 0
+					def[cps]['water_'..fdm] = 0
+					if def.cantbetransported then
+						def.cantbetransported = false
+					end
+				else
+					def[cps][fdm] = 0.35
+				end
+			end
 			if def[wds] then
 				for i = 1, #def[wds] do
 					if not def[wds][i][cps] then
@@ -226,11 +240,6 @@ if tweakAirTrans then
 					def[wds][i][cps].collidefirebase = false
 				end
 			end
-            if def.movementclass and string.find(def.movementclass, 'COMMANDERBOT') then
-                def[cps].paratrooper = true
-                def[cps][fdm] = 0.35
-                -- Martin was here commenting about tabs..
-            end
 		end
 	end
 end
