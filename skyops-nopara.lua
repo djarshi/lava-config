@@ -206,6 +206,7 @@ if tweakAirTrans then
 			if def.transportcapacity then
 				def.isfireplatform = true
 				isATS = true
+                def.metalcost = math.floor(def.metalcost * 1.5)
 			end
 			if def[wpn] then
 				for i = 1, #def[wpn] do
@@ -238,7 +239,7 @@ if tweakAirTrans then
 				end
 				if def.movementclass and string.find(def.movementclass, 'COMMANDERBOT') then
                 else
-					def[cps][fdm] = 0.85
+					def[cps][fdm] = 0.95
                 end
 			end
 			if def[wds] then
