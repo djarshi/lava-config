@@ -228,7 +228,7 @@ if tweakAirTrans then
 			end
             if def.movementclass and string.find(def.movementclass, 'COMMANDERBOT') then
                 def[cps].paratrooper = true
-                def[cps][fdm] = 0.35
+                def[cps][fdm] = 0.25
                 -- Martin was here commenting about tabs..
             end
 		end
