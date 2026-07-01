@@ -1,6 +1,15 @@
 # Air
 Changes to air units
 
+## Sky Operations Base para
+More expensive stuff. AA is improved. Conplanes original cost.
+
+```effect
+!bSet unit_restrictions_noair 0
+@tweakdefs ${SKYOPS_NOPA}
+```
+**Credits:** `ZopMaxima`
+
 ## Sky Operations
 More expensive stuff. Air units drop their trasnsports as paratroopers as well as AA is improved.
 
@@ -8,7 +17,11 @@ More expensive stuff. Air units drop their trasnsports as paratroopers as well a
 !bSet unit_restrictions_noair 0
 @tweakdefs ${SKYOPS}
 ```
-**Credits:** `ZopMaxima`  
+**Credits:** `ZopMaxima`
+
+
+
+
 
 ## Paratroopers
 No fall damage for dying transports. AA is improved though.
