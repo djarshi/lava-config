@@ -12,6 +12,7 @@ let tweaks = new Map([
     ["UNLIMITED_SCREAMERS", "ulscr"],
     ["AIRLIMIT", "airl"],
     ["ONE_BIG_NUKE", "airl"],
+    ["ONE_NUKE_ARM", "onm_arm"],
 ]);
 let loadOrdered = ["base", "economy", "maps-tides", "air", "lrpc", "commanders", "nukes", "specialunits", "stealth"]
 let defaultWhere = "#configColRight"
