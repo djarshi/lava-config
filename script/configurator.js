@@ -5,6 +5,7 @@ let tweaks = new Map([
     ["SKYOPS_NOPA", "ec" ],
     ["EPIC_CMDER", "ec" ],
     ["EPIC_COMMANDO_OFF", "cdof"],
+    ["COMMANDO_PACK", "cdon"],
     ["RIOT_TITAN", "riot"],
     ["LAVAPACK", "lap"],
     ["ECOPACK", "eap"],

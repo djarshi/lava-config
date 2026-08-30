@@ -9,6 +9,12 @@ Yes we like exploding nooby bases who don't have defenses against stealth.
 !tide repeat
 ```
 
+## Commando Pack
+Add the Armada Vandal and Legion Saboteur. Commandos are easier to reveal, leave corpses when they die.
+```
+@tweakdefs ${COMMANDO_PACK}
+```
+
 ## Some Stealth Off
 No epic commando's
 
