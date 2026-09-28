@@ -113,6 +113,10 @@ async function initializeApp()
         fillOutput();
     });
 
+    $('#commander-paratrooper-input').on('change', function() {
+        fillOutput();
+    });
+
     fillOutput();
 }
 
@@ -139,7 +143,7 @@ function fillOutput()
                 if (match) {
                     const varName = match[1];
                     console.log("Found variable:", varName);
-                    totalStr += "!bset tweakdefs" + (tweakDefNr==0 ? "" : tweakDefNr) + " " + tweaks.get(varName);
+                    totalStr += "!bset tweakdefs" + (tweakDefNr==0 ? "" : tweakDefNr) + " " + tweakValue(varName);
                 }
                 tweakDefNr++;
             } else if (configLine.trim().startsWith("@tweakunits")) {
@@ -148,7 +152,7 @@ function fillOutput()
                     if (match) {
                             const varName = match[1];
                         console.log("Found variable:", varName);
-                          totalStr += "!bset tweakunits" + (tweakUnitNr==0 ? "" : tweakUnitNr) + " " + tweaks.get(varName);
+                          totalStr += "!bset tweakunits" + (tweakUnitNr==0 ? "" : tweakUnitNr) + " " + tweakValue(varName);
                     }
                 tweakUnitNr++;
             } else {
@@ -163,15 +167,55 @@ function fillOutput()
     const stockpileLimit = $('#custom-stockpile-input').val();
     if (stockpileLimit) {
         const luaString = `--[[ TacMissileNerf(Ini_Wolf) ]] local uDefs=UnitDefs or{} local targets={'armemp','cortron','legperdition'} for _,n in ipairs(targets) do local d=uDefs[n] if d and d.weapondefs then for _,w in pairs(d.weapondefs) do w.customparams=w.customparams or{} w.customparams.stockpilelimit="${stockpileLimit}" end end end`;
-        const cleanB64 = btoa(unescape(encodeURIComponent(luaString)))
-            .replace(/\+/g, '-')
-            .replace(/\//g, '_')
-            .replace(/=/g, '');
-        totalStr += `!bset tweakdefs9 ${cleanB64}\r\n`;
+        totalStr += `!bset tweakdefs9 ${encodeB64Url(luaString)}\r\n`;
     }
 
      $("#command-output-1").val(totalStr.replace(/(\r?\n){2,}/g, '\r\n'));
 
+}
+
+// Tweak value with the checkbox settings applied to its Lua flags.
+function tweakValue(varName)
+{
+    let value = tweaks.get(varName);
+    if (!$('#commander-paratrooper-input').is(':checked')) {
+        value = setLuaFlag(value, 'commanderParatrooper', false);
+    }
+    return value;
+}
+
+// Rewrite "local <name> = true|false" inside a base64 encoded Lua tweak.
+// Returns the tweak untouched if it can't be decoded or doesn't contain the flag.
+function setLuaFlag(b64, name, enabled)
+{
+    let lua;
+    try {
+        lua = decodeB64Url(b64);
+    } catch {
+        return b64;
+    }
+    const pattern = new RegExp(`(local\\s+${name}\\s*=\\s*)(true|false)\\b`);
+    if (!pattern.test(lua)) {
+        return b64;
+    }
+    return encodeB64Url(lua.replace(pattern, `$1${enabled}`));
+}
+
+function encodeB64Url(str)
+{
+    return btoa(unescape(encodeURIComponent(str)))
+        .replace(/\+/g, '-')
+        .replace(/\//g, '_')
+        .replace(/=/g, '');
+}
+
+function decodeB64Url(b64)
+{
+    let base64 = b64.trim().replace(/-/g, '+').replace(/_/g, '/');
+    while (base64.length % 4) {
+        base64 += '=';
+    }
+    return decodeURIComponent(escape(atob(base64)));
 }
 
 // get plain text from commonmark AST-node
