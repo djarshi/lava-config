@@ -18,6 +18,7 @@ local tweakAirPrice = true
 local tweakAirTrans = true
 local tweakFlags = true
 local tweakScreamers = true
+local commanderParatrooper = true
 
 local function round10(n)
 	return math.floor(n * 0.1) * 10
@@ -218,7 +219,11 @@ if tweakAirTrans then
 			end
 		elseif def.canmove then
 			def[cps] = def[cps] or {}
-			def[cps].paratrooper = true
+			if not commanderParatrooper and def[cps].iscommander then
+				def[cps].paratrooper = nil
+			else
+				def[cps].paratrooper = true
+			end
 			local fdm = 'fall_damage_multiplier'
 			if not def[cps][fdm] then
 			    -- movementclass COMMANDERBOT
