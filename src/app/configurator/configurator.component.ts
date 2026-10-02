@@ -126,10 +126,17 @@ interface UsedTweakRow {
                           (click)="openLuaView(t.name)" title="View Lua source">
                     <i class="bi bi-code-square"></i> View
                   </button>
-                  <button type="button" class="lava-btn-ghost px-2 py-0.5 text-xs"
-                          (click)="copyBase64(t.name)" title="Copy minified base64">
-                    <i class="bi bi-clipboard2"></i> b64
-                  </button>
+                  <span class="relative inline-flex">
+                    <button type="button" class="lava-btn-ghost px-2 py-0.5 text-xs"
+                            (click)="copyBase64(t.name)" title="Copy minified base64">
+                      <i class="bi bi-clipboard2"></i> b64
+                    </button>
+                    @if (copiedName() === t.name) {
+                      <span class="pointer-events-none absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap rounded bg-emerald-500 px-2 py-0.5 text-xs font-medium text-white shadow">
+                        Copied!
+                      </span>
+                    }
+                  </span>
                 </span>
               </li>
             }
@@ -295,6 +302,7 @@ export class ConfiguratorComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     if (this.intervalId) clearInterval(this.intervalId);
+    if (this.copiedTimer) clearTimeout(this.copiedTimer);
   }
 
   private pickThanks(): void {
@@ -456,6 +464,10 @@ export class ConfiguratorComponent implements OnInit, OnDestroy {
     await this.copyText(this.output);
   }
 
+  /** Name of the tweak whose b64 was just copied, for the "Copied!" hint. */
+  readonly copiedName = signal<string | null>(null);
+  private copiedTimer: ReturnType<typeof setTimeout> | null = null;
+
   async copyBase64(name: string): Promise<void> {
     const lua = this.luaByTweak.get(name);
     if (!lua) return;
@@ -467,6 +479,12 @@ export class ConfiguratorComponent implements OnInit, OnDestroy {
       return;
     }
     await this.copyText(b64);
+    this.copiedName.set(name);
+    if (this.copiedTimer) clearTimeout(this.copiedTimer);
+    this.copiedTimer = setTimeout(() => {
+      if (this.copiedName() === name) this.copiedName.set(null);
+      this.copiedTimer = null;
+    }, 2000);
   }
 
   downloadOutput(): void {
