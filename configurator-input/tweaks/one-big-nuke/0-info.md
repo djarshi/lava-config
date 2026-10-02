@@ -1,6 +1,6 @@
 # One Big Nuke
 
-Nuke rebalance towards a "one big nuke" style: replaces the stock nuke silos and antinukes with a single very expensive experimental ICBM launcher per faction. Multiple versions preserved (1.3, 1.4, 1.5, 1.6).
+Nuke rebalance towards a "one big nuke" style: replaces the stock nuke silos and antinukes with a single very expensive experimental ICBM launcher per faction. Originally started by Zopmaxima. Multiple versions preserved (1.3, 1.4, 1.5, 1.6).
 
 # Current effect
 - Adds `armsiloexp` / `corsiloexp` / `legsiloexp` — experimental ICBM launchers merged from the stock silos with heavy stats (5900 hp, 16M metal, 260M energy, ~4.79M buildtime, max 1 per player).
