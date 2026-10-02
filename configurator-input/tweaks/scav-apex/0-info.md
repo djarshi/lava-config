@@ -7,24 +7,27 @@ Note: the `*_scav` Apex UnitDefs are created later by BAR in `createScavengerUni
 # Current effect
 
 **Apex Titan** (`armapextitan`, from `armbanth` — Armada)
-- A walking epic pulsar with 1.8M health. Metal ~386k, energy ~8.18M, buildtime ~2.86M (all /1.10), speed 36, sight 1500, radar 1800.
+- A walking epic pulsar with ~708k health. Metal ~386k, energy ~8.18M, buildtime ~2.86M (all /1.10), speed 32, sight 1500, radar 1800.
 - Primary heavy siege beam: range 1150, 21000 dmg (31500 vs shields, 7000 vs commanders), 18000 energy/shot.
 - Supporting missile battery: range 1100, 3500 dmg, 6000 energy/shot.
 - Close/mid blaster: range 650, 1200 dmg.
 - Unlocked from `armshltx` / `armshltxuw` / `armgant` / `armgantuw` as `armapextitan_scav`.
 
 **Apex Juggernaut** (`corapex`, from `corkorg` — Cortex)
-- Close-range powerhouse, 1.9M health. Metal ~545k, energy ~10.9M, buildtime ~3.86M, speed 30, turn-in-place.
+- Close-range powerhouse, ~958k health. Metal ~545k, energy ~10.9M, buildtime ~3.86M, speed 27, turn-in-place.
 - Overload Annihilator (fire/laser/rocket): range 560, 14000 dmg (10500 vs shields), 40000 energy/shot, huge 380 AOE.
 - Overload Beam: 30000 dmg (22500 vs shields, 15000 vs commanders), 96 AOE.
 - Overload Missile Battery: range 1100, 3500 dmg.
 - Unlocked from `corgant` / `corgantuw` as `corapex_scav`.
 
 **Apex SOL** (`apexsol`, from `legeheatraymech_old` — Legion)
-- Ranged devastator, 1.65M health. Metal ~591k, energy ~10M, buildtime ~4.36M, speed 32, sight 1100, radar 1800. Immune to paralysis.
+- Ranged devastator, ~792k health. Metal ~591k, energy ~10M, buildtime ~4.36M, speed 29, sight 1100, radar 1800. Immune to paralysis.
 - SOL Pulsing Laser: range 850, fast 0.2s reload, 800 dmg (320 vs commanders, 0 vs air), 1000 energy/shot.
 - Flak AA gun: range 1400, 600 dmg vs air, burst 4.
 - Unlocked from `leggant` as `apexsol_scav`.
+
+## 1.3
+- Reduced health of all three Apex units (Titan ~708k, Juggernaut ~958k, SOL ~792k) and slightly lowered their speed (Titan 32, Juggernaut 27, SOL 29).
 
 ## 1.2
 - Balanced build power to be higher for each unit.
