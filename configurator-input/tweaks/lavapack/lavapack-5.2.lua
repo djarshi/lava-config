@@ -428,39 +428,7 @@ for name, unitDef in pairs(uDefs) do
      unitDef.energycost = (unitDef.energycost or 0) * 1
   end
 end
--- mex/geo fix underwater
-if noSea then
-	local mwd = 'minwaterdepth'
-	local uwRef = uDefs['coruwgeo']
-	uDefs['armuwgeo'][mwd] = uwRef[mwd]
-	for id, def in pairs(uDefs) do
-		if def['customparams'].metal_extractor or def['customparams'].geothermal then
-			def.maxwaterdepth = uwRef.maxwaterdepth
-		end
-        local min = def[mwd]
-        if hasHoverTide and min then
-            local isEco = def.energymake or def.metalmake or def[cps].unitgroup == 'energy' or def[cps].unitgroup == 'metal'
-            if isEco or def.buildoptions or def.waterline == nil then
-                rmvID(id)
-            else
-                def.waterline = 0
-                def[mwd] = 1
-                def[cps] = def[cps] or {}
-                def[cps].enabled_on_no_sea_maps = true
-            end
-        elseif min and min > 0 then
-            rmvID(id)
-        end
-        if def.cruisealtitude then
-            if def.cansubmerge then
-                def.cansubmerge = false
-            end
-            if def.maxwaterdepth then
-                def.maxwaterdepth = 0
-            end
-        end
-    end
-end
+
 
 local newID = "legendaryenergyconverter"
 uDefs[newID] = table.copy(uDefs["legadveconv"] or {})
