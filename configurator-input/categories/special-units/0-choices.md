@@ -3,7 +3,7 @@
 Adding a boss unit of some form?
 
 ## Riot titan + SCAV
-Titans with shielding and emp.. but not alot of dmg.
+Titans with shielding and emp.. but not alot of dmg. Also adds APEX SCAV units (Apex Titan, Apex Juggernaut, Apex SOL) unlocked from the T3 gantries.
 
 ```effect
 @tweakdefs riot-titan

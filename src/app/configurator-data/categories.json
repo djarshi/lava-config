@@ -645,12 +645,12 @@
       "title": "Special units",
       "column": "right",
       "info": "# Special units\n\nAdding a boss unit of some form?",
-      "choices": "# Special units\n\nAdding a boss unit of some form?\n\n## Riot titan + SCAV\nTitans with shielding and emp.. but not alot of dmg.\n\n```effect\n@tweakdefs riot-titan\n@tweakdefs scav-apex\n```\n\n## Riot titan\nTitans with shielding and emp.. but not alot of dmg.\n\n```effect\n@tweakdefs riot-titan\n```\n\n## No extras units.\nMo special changes, just normal.\n\n```effect\n```\n\n## Engiman Epic Commander\nMax 1 per player extra boss unit... very strong.\n\n```effect\n@tweakunits epic-commander\n```\n\n\n## Riot & Epic com\nTitans with shielding and emp.. but not alot of dmg.\n\n```effect\n@tweakunits epic-commander\n@tweakdefs riot-titan\n```\n",
+      "choices": "# Special units\n\nAdding a boss unit of some form?\n\n## Riot titan + SCAV\nTitans with shielding and emp.. but not alot of dmg. Also adds APEX SCAV units (Apex Titan, Apex Juggernaut, Apex SOL) unlocked from the T3 gantries.\n\n```effect\n@tweakdefs riot-titan\n@tweakdefs scav-apex\n```\n\n## Riot titan\nTitans with shielding and emp.. but not alot of dmg.\n\n```effect\n@tweakdefs riot-titan\n```\n\n## No extras units.\nMo special changes, just normal.\n\n```effect\n```\n\n## Engiman Epic Commander\nMax 1 per player extra boss unit... very strong.\n\n```effect\n@tweakunits epic-commander\n```\n\n\n## Riot & Epic com\nTitans with shielding and emp.. but not alot of dmg.\n\n```effect\n@tweakunits epic-commander\n@tweakdefs riot-titan\n```\n",
       "options": [
         {
           "slug": "riot-titan-scav",
           "title": "Riot titan + SCAV",
-          "description": "Titans with shielding and emp.. but not alot of dmg.",
+          "description": "Titans with shielding and emp.. but not alot of dmg. Also adds APEX SCAV units (Apex Titan, Apex Juggernaut, Apex SOL) unlocked from the T3 gantries.",
           "effectLines": [
             "@tweakdefs riot-titan",
             "@tweakdefs scav-apex"
