@@ -84,6 +84,15 @@ interface Tweak {
     <!-- Listing view -->
     } @else {
       <section class="lava-panel">
+        <div class="mb-4 flex items-start gap-3 rounded-md border border-lava-orange/30 bg-lava-orange/5 p-3 text-sm text-zinc-700 dark:text-zinc-300">
+          <i class="bi bi-info-circle-fill text-lava-orange mt-0.5 flex-shrink-0"></i>
+          <p class="m-0 leading-relaxed">
+            This library lists the stable, widely-used tweaks. Many more can be found by joining the
+            <a class="font-semibold text-lava-orange hover:underline" href="https://discord.gg/beyondallreason" target="_blank" rel="noopener">Barcade (BAR)</a>
+            or Lavabar Discord communities. Things change a lot, and since this site is a front-end-only SPA, you don't want to download a whole database of every tweak.
+          </p>
+        </div>
+
         <div class="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <h2 class="flex items-center gap-2 text-lg font-semibold text-zinc-900 dark:text-white">
             <i class="bi bi-search text-lava-orange"></i> Tweak library
