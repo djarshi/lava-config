@@ -62,7 +62,7 @@ export class LinksComponent {
       items: [
         {
           title: 'Lavabalance',
-          description: 'Lavabalance tool & lobby info by huk. Laid-back mass-army clashes — no sweaty laddering.',
+          description: 'Lavabalance tool & lobby info by huk. Laid-back mass-army clashes — no sweaty laddering. Especially check out the replays function, amazing!',
           url: 'https://lavabalance.fogofwar.dev',
           icon: 'bi-bar-chart-steps text-lava-orange',
         },
