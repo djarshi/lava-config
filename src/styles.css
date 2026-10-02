@@ -41,6 +41,11 @@
 }
 
 @layer base {
+  html {
+    /* Root font-size: bump from the 16px default to scale all rem-based
+       Tailwind text utilities up a little app-wide. */
+    font-size: 17px;
+  }
   body {
     @apply bg-zinc-100 text-zinc-900 dark:bg-lava-bg dark:text-zinc-100;
   }
