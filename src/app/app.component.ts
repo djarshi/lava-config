@@ -61,6 +61,23 @@ interface TabDef {
         </button>
       </div>
 
+      <!-- Lavabalance hint strip -->
+      @if (lavabalanceHint()) {
+        <div class="border-t border-lava-orange/20 bg-lava-orange/5">
+          <div class="mx-auto flex max-w-6xl items-center gap-2 px-4 py-1.5 text-xs text-zinc-600 dark:text-zinc-300">
+            <i class="bi bi-info-circle-fill text-lava-orange flex-shrink-0"></i>
+            <span class="min-w-0">
+              Looking for the
+              <a class="font-semibold text-lava-orange hover:underline" href="https://lavabalance.fogofwar.dev" target="_blank" rel="noopener">Lavabalance tool &amp; lobby info</a>
+              (by huk)? Laid-back mass-army clashes — no sweaty laddering.
+            </span>
+            <button type="button" class="ml-auto flex-shrink-0 rounded p-1 text-zinc-400 hover:bg-black/5 hover:text-zinc-700 dark:hover:bg-white/10 dark:hover:text-zinc-100" (click)="dismissLavabalanceHint()" aria-label="Dismiss hint">
+              <i class="bi bi-x-lg"></i>
+            </button>
+          </div>
+        </div>
+      }
+
       <!-- Mobile dropdown menu -->
       @if (menuOpen()) {
         <nav class="border-t border-zinc-200 bg-white px-4 py-2 dark:border-lava-border dark:bg-[#111315] md:hidden">
@@ -96,6 +113,11 @@ interface TabDef {
 export class AppComponent {
   readonly theme = inject(ThemeService);
   readonly menuOpen = signal(false);
+  readonly lavabalanceHint = signal(true);
+
+  dismissLavabalanceHint(): void {
+    this.lavabalanceHint.set(false);
+  }
 
   readonly tabs: TabDef[] = [
     { path: '/configurator', label: 'Configurator', icon: 'bi-sliders2-vertical' },
