@@ -61,6 +61,12 @@ export class LinksComponent {
       heading: 'Other playmodes & configs',
       items: [
         {
+          title: 'Lavabalance',
+          description: 'Lavabalance tool & lobby info by huk. Laid-back mass-army clashes — no sweaty laddering.',
+          url: 'https://lavabalance.fogofwar.dev',
+          icon: 'bi-bar-chart-steps text-lava-orange',
+        },
+        {
           title: 'Space expansion',
           description: 'More eco and things that fly/hover in air',
           url: 'https://docs.google.com/spreadsheets/d/1ozK0eU2OXPlmW29MfRrRFSC17pZocOoTJ5X-xpCZ2dk',
