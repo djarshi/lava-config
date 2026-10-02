@@ -35,19 +35,9 @@ export class LuaCodecService {
     const cached = this.cache.get(lua);
     if (cached) return cached;
 
-    if (!this.ready) {
-      throw new Error('luamin.js is not loaded yet — refresh the page.');
-    }
-
     let payload: string;
     try {
-      const minified = window.luamin!.minify(lua, {
-        RenameVariables: false,
-        RenameGlobals: false,
-        SolveMath: false,
-      });
-      const header = this.firstComments(lua, 3);
-      payload = header ? header + '\n' + minified : minified;
+      payload = this.minify(lua);
     } catch (e) {
       // Not parseable as standalone Lua (bare table fragments). Encode raw.
       payload = lua;
@@ -56,6 +46,35 @@ export class LuaCodecService {
     const b64 = this.toBase64Url(payload);
     this.cache.set(lua, b64);
     return b64;
+  }
+
+  /**
+   * Minify Lua with the same settings used to build the site's bset payloads:
+   * luamin.minify(code, { RenameVariables: false, RenameGlobals: false,
+   * SolveMath: false }) and prepend up to 3 leading `--` comment lines.
+   * Throws if luamin can't parse the source (e.g. bare table fragments).
+   */
+  minify(lua: string): string {
+    if (!this.ready) {
+      throw new Error('luamin.js is not loaded yet — refresh the page.');
+    }
+    const minified = window.luamin!.minify(lua, {
+      RenameVariables: false,
+      RenameGlobals: false,
+      SolveMath: false,
+    });
+    const header = this.firstComments(lua, 3);
+    return header ? header + '\n' + minified : minified;
+  }
+
+  /** Base64URL-decode back to the original Lua source string. */
+  decode(b64url: string): string {
+    let base64 = b64url.replace(/-/g, '+').replace(/_/g, '/');
+    while (base64.length % 4) base64 += '=';
+    const bin = atob(base64);
+    const bytes = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    return new TextDecoder().decode(bytes);
   }
 
   /** First up to `max` leading `--` comment lines of the source. */

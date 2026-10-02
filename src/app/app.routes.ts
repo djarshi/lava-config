@@ -18,6 +18,11 @@ export const routes: Routes = [
     loadComponent: () => import('./tweak-search/tweak-search.component').then((m) => m.TweakSearchComponent),
   },
   {
+    path: 'encoder',
+    title: 'Lua encoder — Lava configurator',
+    loadComponent: () => import('./encoder/encoder.component').then((m) => m.EncoderComponent),
+  },
+  {
     path: 'links',
     title: 'Links — Lava configurator',
     loadComponent: () => import('./links/links.component').then((m) => m.LinksComponent),

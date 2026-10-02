@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 interface LinkItem {
   title: string;
@@ -10,7 +11,7 @@ interface LinkItem {
 @Component({
   selector: 'app-links',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   template: `
     <div class="lava-panel mb-4">
       <h1 class="mb-2 flex items-center gap-2 text-xl font-bold text-zinc-900 dark:text-white">
@@ -29,14 +30,25 @@ interface LinkItem {
         <h2 class="mb-2 text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">{{ group.heading }}</h2>
         <div class="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-3">
           @for (link of group.items; track link.url) {
-            <a [href]="link.url" target="_blank" rel="noopener" class="link-card flex items-start gap-3">
-              <i class="bi flex-shrink-0 text-3xl" [class]="link.icon" style="color: var(--tw-lava, #ff6b35)"></i>
-              <div class="min-w-0 flex-1">
-                <div class="mb-0.5 font-bold text-zinc-900 dark:text-white">{{ link.title }}</div>
-                <div class="text-sm text-zinc-500 dark:text-zinc-400">{{ link.description }}</div>
-              </div>
-              <i class="bi bi-box-arrow-up-right flex-shrink-0 text-zinc-400"></i>
-            </a>
+            @if (link.url.startsWith('/')) {
+              <a [routerLink]="link.url" class="link-card flex items-start gap-3">
+                <i class="bi flex-shrink-0 text-3xl" [class]="link.icon" style="color: var(--tw-lava, #ff6b35)"></i>
+                <div class="min-w-0 flex-1">
+                  <div class="mb-0.5 font-bold text-zinc-900 dark:text-white">{{ link.title }}</div>
+                  <div class="text-sm text-zinc-500 dark:text-zinc-400">{{ link.description }}</div>
+                </div>
+                <i class="bi bi-arrow-right flex-shrink-0 text-zinc-400"></i>
+              </a>
+            } @else {
+              <a [href]="link.url" target="_blank" rel="noopener" class="link-card flex items-start gap-3">
+                <i class="bi flex-shrink-0 text-3xl" [class]="link.icon" style="color: var(--tw-lava, #ff6b35)"></i>
+                <div class="min-w-0 flex-1">
+                  <div class="mb-0.5 font-bold text-zinc-900 dark:text-white">{{ link.title }}</div>
+                  <div class="text-sm text-zinc-500 dark:text-zinc-400">{{ link.description }}</div>
+                </div>
+                <i class="bi bi-box-arrow-up-right flex-shrink-0 text-zinc-400"></i>
+              </a>
+            }
           }
         </div>
       </section>
@@ -114,9 +126,9 @@ export class LinksComponent {
           icon: 'bi-book text-lava-orange',
         },
         {
-          title: 'Base64 coder/beautifier',
-          description: 'Encodes/Decodes as well as minify and beautify lua. This handy tool comes straight out of the nuttyb configurator.',
-          url: 'encoder-b64.html',
+          title: 'Base64 coder / beautifier',
+          description: 'Encode / decode Base64URL and minify / beautify Lua in your browser. Minify uses the same settings as the configurator.',
+          url: '/encoder',
           icon: 'bi-file-binary text-lava-orange',
         },
       ],
