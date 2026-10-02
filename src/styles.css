@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Component-level utilities shared across the app */
+@layer components {
+  .lava-panel {
+    @apply rounded-lg border border-zinc-200 bg-white p-4 shadow-sm dark:border-lava-border dark:bg-lava-panel dark:shadow-none;
+  }
+  .lava-tabs-link {
+    @apply rounded-md px-3 py-1.5 text-sm font-medium text-zinc-500 transition-colors hover:bg-black/5 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-white;
+  }
+  .lava-tabs-link.active {
+    @apply bg-lava-orange/10 text-lava-orange hover:bg-lava-orange/15 hover:text-lava-orange;
+  }
+  .lava-btn {
+    @apply inline-flex items-center gap-1.5 rounded-md bg-lava-orange px-3 py-1.5 text-sm font-semibold text-zinc-900 transition-colors hover:bg-lava-orange-dim hover:text-white;
+  }
+  .lava-btn-outline {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-lava-orange px-3 py-1.5 text-sm font-semibold text-lava-orange transition-colors hover:bg-lava-orange hover:text-zinc-900;
+  }
+  .lava-btn-ghost {
+    @apply inline-flex items-center gap-1.5 rounded-md border border-zinc-300 px-3 py-1.5 text-sm font-medium text-zinc-600 transition-colors hover:bg-zinc-100 dark:border-zinc-600 dark:text-zinc-300 dark:hover:bg-zinc-700/40;
+  }
+  .link-card {
+    @apply block h-full rounded-lg border border-zinc-200 bg-white p-4 shadow-sm no-underline transition-all hover:-translate-y-0.5 hover:border-lava-orange hover:shadow-md dark:border-lava-border dark:bg-lava-panel dark:shadow-none;
+  }
+  .nav-link {
+    @apply flex w-full items-center gap-2 rounded-md px-3 py-2 text-left text-sm font-medium text-zinc-700 dark:text-zinc-200;
+  }
+  .nav-link.active {
+    @apply text-lava-orange;
+  }
+  .command-output {
+    @apply w-full rounded-lg border border-zinc-300 bg-zinc-100 p-3 font-mono text-sm text-zinc-900 dark:border-lava-border dark:bg-[#15171a] dark:text-zinc-100;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: auto;
+    resize: vertical;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-zinc-100 text-zinc-900 dark:bg-lava-bg dark:text-zinc-100;
+  }
+}
+
+/* Rendered markdown inside the choices help dialog */
+.lava-choices {
+  @apply text-sm leading-relaxed text-zinc-700 dark:text-zinc-300;
+}
+.lava-choices h1 {
+  @apply mb-3 text-lg font-bold text-zinc-900 dark:text-white;
+}
+.lava-choices h2 {
+  @apply mt-4 mb-2 text-base font-semibold text-lava-orange;
+}
+.lava-choices h3 {
+  @apply mt-3 mb-1 text-sm font-semibold text-zinc-900 dark:text-white;
+}
+.lava-choices p {
+  @apply my-2;
+}
+.lava-choices ul {
+  @apply my-2 list-disc pl-5;
+}
+.lava-choices ol {
+  @apply my-2 list-decimal pl-5;
+}
+.lava-choices li {
+  @apply my-0.5;
+}
+.lava-choices strong {
+  @apply font-semibold text-zinc-900 dark:text-white;
+}
+.lava-choices em {
+  @apply italic;
+}
+.lava-choices a {
+  @apply text-lava-orange underline hover:text-lava-orange-dim;
+}
+.lava-choices code {
+  @apply rounded bg-zinc-100 px-1 py-0.5 font-mono text-xs text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200;
+}
+.lava-choices pre {
+  @apply my-3 overflow-x-auto rounded-md border border-zinc-200 bg-zinc-100 p-3 dark:border-lava-border dark:bg-[#15171a];
+}
+.lava-choices pre code {
+  @apply bg-transparent p-0 text-xs text-zinc-800 dark:text-zinc-200;
+}
+/* Collapsible code blocks inside the choices dialog */
+.lava-choices .lava-code-wrap {
+  @apply my-3 flex flex-col;
+}
+.lava-choices .lava-code-wrap pre {
+  @apply my-0 overflow-hidden rounded-md border border-zinc-200 bg-zinc-100 p-3 dark:border-lava-border dark:bg-[#15171a];
+  max-height: 5.5rem;
+}
+.lava-choices .lava-code-wrap:not(.expanded) pre {
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent);
+  mask-image: linear-gradient(to bottom, black 80%, transparent);
+}
+.lava-choices .lava-code-wrap.expanded pre {
+  max-height: none;
+  overflow: auto;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.lava-choices .lava-code-toggle {
+  @apply mt-1 self-end rounded border border-lava-orange px-2 py-0.5 text-xs font-semibold no-underline text-lava-orange transition-colors hover:bg-lava-orange hover:text-zinc-900;
+  cursor: pointer;
+}
+.lava-choices hr {
+  @apply my-4 border-zinc-200 dark:border-lava-border;
+}
+
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+/* Lua source viewer (syntax highlighting + line gutter) */
+.lua-viewer {
+  @apply rounded-md border border-zinc-200 bg-zinc-50 dark:border-lava-border dark:bg-[#15171a];
+}
+.lua-view {
+  display: flex;
+  align-items: flex-start;
+}
+.lua-gutter,
+.lua-code {
+  @apply m-0 font-mono text-xs leading-5;
+  white-space: pre;
+}
+.lua-gutter {
+  @apply select-none text-right text-zinc-400 dark:text-zinc-600;
+  padding: 0.75rem 0.5rem 0.75rem 0.75rem;
+  flex: 0 0 auto;
+  border-right: 1px solid theme('colors.zinc.200');
+}
+.dark .lua-gutter {
+  border-right-color: theme('colors.zinc.700');
+}
+.lua-code {
+  @apply overflow-x-auto text-zinc-800 dark:text-zinc-200;
+  padding: 0.75rem;
+  flex: 1 1 auto;
+}
+.lua-code code {
+  @apply font-mono text-xs leading-5;
+  white-space: pre;
+}
+.lua-comment { @apply text-zinc-400 italic dark:text-zinc-500; }
+.lua-string  { @apply text-emerald-600 dark:text-emerald-400; }
+.lua-number  { @apply text-amber-600 dark:text-amber-400; }
+.lua-keyword { @apply text-fuchsia-600 dark:text-fuchsia-400; }
+.lua-builtin { @apply text-sky-600 dark:text-sky-400; }
+.lua-global { @apply text-lava-orange; }
+.lua-name    { @apply text-zinc-800 dark:text-zinc-200; }
+.lua-punct   { @apply text-zinc-500 dark:text-zinc-400; }

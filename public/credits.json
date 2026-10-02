@@ -1,0 +1,85 @@
+{
+  "sections": [
+    {
+      "heading": "Credits",
+      "intro": "A lot of people to thank for help:",
+      "items": [
+        {
+          "role": "The game",
+          "name": "Beyond All Reason team",
+          "why": "For an amazing game.",
+          "link": "https://www.beyondallreason.info/"
+        },
+        {
+          "role": "BAR moderator",
+          "name": "OPman",
+          "why": "Explanatory help to get me started.",
+          "link": "https://www.beyondallreason.info/team/opman"
+        },
+        {
+          "role": "Ideas",
+          "name": "txpera",
+          "why": "For all the ideas and nudges to make this and that."
+        },
+        {
+          "role": "Tweaks & bugs",
+          "name": "ZopMaxima",
+          "why": "Likes programming, made lots of tweaks (including the SkyOps and RiotTitan tweaks), pointed out bugs and suggestions on how to fix. Repository of tweak sources.",
+          "link": "https://github.com/ZopMaxima/BAR/tree/main/Tweaks"
+        },
+        {
+          "role": "Tweaks & bugs",
+          "name": "BM_Tyleno",
+          "why": "For the APEX and T3 architect tweaks."
+        },
+        {
+          "role": "Tweaks & bugs",
+          "name": "Inimitable Wolf",
+          "why": "For the missile limitations and commander paratrooper fix tweaks."
+        },
+        {
+          "role": "EngiBoss",
+          "name": "Engiman",
+          "why": "For the EngiBoss unit."
+        },
+        {
+          "role": "Eco",
+          "name": "FatSun",
+          "why": "Incredibly good at eco, which led me to discover there can be too much eco."
+        },
+        {
+          "role": "Eco",
+          "name": "RetribuDef",
+          "why": "Aside from eco, Impregnable fortresses and behe trains. Fun times."
+        },
+        {
+          "role": "Community",
+          "name": "Flintbourne",
+          "why": "For managing the Discord server."
+        },
+        {
+          "role": "Inspiration",
+          "name": "RCore",
+          "why": "Made a configurator from which some things were taken to make this.",
+          "link": "https://github.com/rcorex/nuttyb-config"
+        }
+      ]
+    },
+    {
+      "heading": "Foundations",
+      "intro": "Some people to mention who made it possible to have multiplay and programming in general.",
+      "items": [
+        {
+          "role": "TCP / Internet",
+          "name": "Vinton Cerf & Robert Elliot Kahn",
+          "why": "For inventing TCP, the foundation of the internet."
+        },
+        {
+          "role": "Programming",
+          "name": "Edsger Dijkstra",
+          "why": "For being an amazing influence on programming as a field."
+        }
+      ]
+    }
+  ]
+}

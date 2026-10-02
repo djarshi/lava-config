@@ -1,0 +1,772 @@
+{
+  "order": [
+    "base",
+    "economy",
+    "maps-tides",
+    "air",
+    "lrpc",
+    "commanders",
+    "nukes",
+    "special-units",
+    "stealth-units"
+  ],
+  "categories": [
+    {
+      "name": "base",
+      "title": "Base lava settings",
+      "column": "left",
+      "info": "# Base lava settings\n\nThe base lava setting which often help set messages, standard ranges, damage, ranked, budget settings.\n",
+      "choices": "# Base lava settings\n\nTurns on the base lava settings like water=lava\n\n## Eco insanity\nMore starting resources & starting base budget & bb turret\nRemember the enemy of strategy is too much Eco\nThis version is stronger in terms of eco. However this will flatten out differences that arise from people who know how to scale up and those who do not\n\n```effect\n!preset team\n!teamsize 8\n!draft_mode skill\n!unit_market 0\n!bSet ranked_game 0\n!multiplier_builddistance 1.5\n!multiplier_buildpower 1.5\n!multiplier_buildtimecost 1\n!multiplier_energyconversion 1\n!multiplier_energycost 1\n!multiplier_energyproduction 1\n!multiplier_losrange 1\n!multiplier_maxdamage 1\n!multiplier_maxvelocity 1\n!multiplier_metalcost 1\n!multiplier_metalextraction 1\n!multiplier_radarrange 1\n!multiplier_resourceincome 1\n!multiplier_shieldpower 1\n!multiplier_turnrate 1\n!multiplier_weapondamage 1\n!multiplier_weaponrange 1\n!experimentalshields absorbeverything\n!experimentallegionfaction 1\n!experimentalextraunits 1\n!bSet map_waterislava 1\n$welcome-message Settings made with configurator https://djarshi.github.io/lava-config/\n!bSet quick_start factory_discount\n!bSet commanderbuildersrange 1250\n!bSet commanderbuildersbuildpower 800\n!bSet commanderbuildersenabled enabled\n!bSet quick_start_amount large\n```\n\n## Basics\nBasic lava settings.\nRemember the enemy of strategy is too much Eco\n\n```effect\n!preset team\n!teamsize 8\n!draft_mode skill\n!unit_market 0\n!bSet ranked_game 0\n!multiplier_builddistance 1.5\n!multiplier_buildpower 1.5\n!multiplier_buildtimecost 1\n!multiplier_energyconversion 1\n!multiplier_energycost 1\n!multiplier_energyproduction 1\n!multiplier_losrange 1\n!multiplier_maxdamage 1\n!multiplier_maxvelocity 1\n!multiplier_metalcost 1\n!multiplier_metalextraction 1\n!multiplier_radarrange 1\n!multiplier_resourceincome 1\n!multiplier_shieldpower 1\n!multiplier_turnrate 1\n!multiplier_weapondamage 1\n!multiplier_weaponrange 1\n!experimentalshields absorbeverything\n!experimentallegionfaction 1\n!experimentalextraunits 1\n!bSet map_waterislava 1\n$welcome-message Settings made with configurator https://djarshi.github.io/lava-config/\n!bSet quick_start factory_discount\n\n```\n",
+      "options": [
+        {
+          "slug": "eco-insanity",
+          "title": "Eco insanity",
+          "description": "More starting resources & starting base budget & bb turret\nRemember the enemy of strategy is too much Eco\nThis version is stronger in terms of eco. However this will flatten out differences that arise from people who know how to scale up and those who do not",
+          "effectLines": [
+            "!preset team",
+            "!teamsize 8",
+            "!draft_mode skill",
+            "!unit_market 0",
+            "!bSet ranked_game 0",
+            "!multiplier_builddistance 1.5",
+            "!multiplier_buildpower 1.5",
+            "!multiplier_buildtimecost 1",
+            "!multiplier_energyconversion 1",
+            "!multiplier_energycost 1",
+            "!multiplier_energyproduction 1",
+            "!multiplier_losrange 1",
+            "!multiplier_maxdamage 1",
+            "!multiplier_maxvelocity 1",
+            "!multiplier_metalcost 1",
+            "!multiplier_metalextraction 1",
+            "!multiplier_radarrange 1",
+            "!multiplier_resourceincome 1",
+            "!multiplier_shieldpower 1",
+            "!multiplier_turnrate 1",
+            "!multiplier_weapondamage 1",
+            "!multiplier_weaponrange 1",
+            "!experimentalshields absorbeverything",
+            "!experimentallegionfaction 1",
+            "!experimentalextraunits 1",
+            "!bSet map_waterislava 1",
+            "$welcome-message Settings made with configurator https://djarshi.github.io/lava-config/",
+            "!bSet quick_start factory_discount",
+            "!bSet commanderbuildersrange 1250",
+            "!bSet commanderbuildersbuildpower 800",
+            "!bSet commanderbuildersenabled enabled",
+            "!bSet quick_start_amount large"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "basics",
+          "title": "Basics",
+          "description": "Basic lava settings.\nRemember the enemy of strategy is too much Eco",
+          "effectLines": [
+            "!preset team",
+            "!teamsize 8",
+            "!draft_mode skill",
+            "!unit_market 0",
+            "!bSet ranked_game 0",
+            "!multiplier_builddistance 1.5",
+            "!multiplier_buildpower 1.5",
+            "!multiplier_buildtimecost 1",
+            "!multiplier_energyconversion 1",
+            "!multiplier_energycost 1",
+            "!multiplier_energyproduction 1",
+            "!multiplier_losrange 1",
+            "!multiplier_maxdamage 1",
+            "!multiplier_maxvelocity 1",
+            "!multiplier_metalcost 1",
+            "!multiplier_metalextraction 1",
+            "!multiplier_radarrange 1",
+            "!multiplier_resourceincome 1",
+            "!multiplier_shieldpower 1",
+            "!multiplier_turnrate 1",
+            "!multiplier_weapondamage 1",
+            "!multiplier_weaponrange 1",
+            "!experimentalshields absorbeverything",
+            "!experimentallegionfaction 1",
+            "!experimentalextraunits 1",
+            "!bSet map_waterislava 1",
+            "$welcome-message Settings made with configurator https://djarshi.github.io/lava-config/",
+            "!bSet quick_start factory_discount",
+            ""
+          ],
+          "tweakRefs": []
+        }
+      ]
+    },
+    {
+      "name": "economy",
+      "title": "Economy",
+      "column": "left",
+      "info": "# Economy\n\nAdds the t3 afuses, mexes, geo.",
+      "choices": "# Economy\n\nAdds the t3 afuses, mexes, geo\n\n## Djarshi lavapack (+epic+legendary+QoL)\nThis is the lavapack with t3 afuses, mexes, geo and some price changes for behemoth & turns sea off.\nModifications:\n- Changes epic converter size to footprint of an AFUS.\n- Adds Epic Metal extractor (costly to keep functioning tho)\n- Adds Epic Geothermal powerplant with shield.\n- Adds Epic construction turret 3000BP and a slight reduced 2000 reclaim.\n- Adds Legendary AFUS (1 per player)\n- Behemoths x2.5 price, legion mech x1.5\n- Pawn launcher & unit cannons are removed.\n- Disables sea lab functions\n- T2 air of other races in experimental aircraft plant\n- Everything that produces power is 10% cheaper compared to base game.\n\n\n```effect\n!scavunitsforplayers 1\n@tweakdefs lavapack\n@tweakdefs qol-pack\n```\n\n## ZopMaxima ecopack (+epic+QoL)\nAdds ZopMaxima's eco pack\n\n```effect\n!scavunitsforplayers 1\n@tweakdefs ecopack\n@tweakdefs qol-pack\n```\n\n## ZopMaxima ecopack + Djarshi lavapack (+epic+legendary+QoL)\nddd\n```effect\n!scavunitsforplayers 1\n\n@tweakdefs lavapack\n@tweakdefs ecopack\n@tweakdefs qol-pack\n```\n\n## Just Epics please\nJust T3 AFUS and converter\n```effect\n!scavunitsforplayers 1\n```\n\n## Classic lava\nJust normal AFUS and converter\n```effect\n!scavunitsforplayers 0\n```\n",
+      "options": [
+        {
+          "slug": "djarshi-lavapack-epic-legendary-qol",
+          "title": "Djarshi lavapack (+epic+legendary+QoL)",
+          "description": "This is the lavapack with t3 afuses, mexes, geo and some price changes for behemoth & turns sea off.\nModifications:\n- Changes epic converter size to footprint of an AFUS.\n- Adds Epic Metal extractor (costly to keep functioning tho)\n- Adds Epic Geothermal powerplant with shield.\n- Adds Epic construction turret 3000BP and a slight reduced 2000 reclaim.\n- Adds Legendary AFUS (1 per player)\n- Behemoths x2.5 price, legion mech x1.5\n- Pawn launcher & unit cannons are removed.\n- Disables sea lab functions\n- T2 air of other races in experimental aircraft plant\n- Everything that produces power is 10% cheaper compared to base game.",
+          "effectLines": [
+            "!scavunitsforplayers 1",
+            "@tweakdefs lavapack",
+            "@tweakdefs qol-pack"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "lavapack"
+            },
+            {
+              "kind": "tweakdefs",
+              "name": "qol-pack"
+            }
+          ]
+        },
+        {
+          "slug": "zopmaxima-ecopack-epic-qol",
+          "title": "ZopMaxima ecopack (+epic+QoL)",
+          "description": "Adds ZopMaxima's eco pack",
+          "effectLines": [
+            "!scavunitsforplayers 1",
+            "@tweakdefs ecopack",
+            "@tweakdefs qol-pack"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "ecopack"
+            },
+            {
+              "kind": "tweakdefs",
+              "name": "qol-pack"
+            }
+          ]
+        },
+        {
+          "slug": "zopmaxima-ecopack-djarshi-lavapack-epic-legendary-qol",
+          "title": "ZopMaxima ecopack + Djarshi lavapack (+epic+legendary+QoL)",
+          "description": "ddd",
+          "effectLines": [
+            "!scavunitsforplayers 1",
+            "",
+            "@tweakdefs lavapack",
+            "@tweakdefs ecopack",
+            "@tweakdefs qol-pack"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "lavapack"
+            },
+            {
+              "kind": "tweakdefs",
+              "name": "ecopack"
+            },
+            {
+              "kind": "tweakdefs",
+              "name": "qol-pack"
+            }
+          ]
+        },
+        {
+          "slug": "just-epics-please",
+          "title": "Just Epics please",
+          "description": "Just T3 AFUS and converter",
+          "effectLines": [
+            "!scavunitsforplayers 1"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "classic-lava",
+          "title": "Classic lava",
+          "description": "Just normal AFUS and converter",
+          "effectLines": [
+            "!scavunitsforplayers 0"
+          ],
+          "tweakRefs": []
+        }
+      ]
+    },
+    {
+      "name": "maps-tides",
+      "title": "Maps & Tides",
+      "column": "left",
+      "info": "# Maps & Tides\n\nChanges the lava levels during game.",
+      "choices": "# Maps & Tides\n\nChanges the lava levels during game\n\n## Supreme Isthmus - 10m grace - hovers after\nA 10 minute high and rest of game lower tide which makes a wide front but not open entirely.\nIncluded also managed height differential of the map with extremebelow.\nIslands have some buildspace for AA/lrpcs if on. This allows for some more tactics, but also annoyances.\n\n```\n!map Supreme Isthmus v2.1\n!bSet map_lavatiderhythm enabled\n!bSet map_lavahighdwell 600\n!bSet map_lavalowdwell 10000\n!bSet map_waterlevel -100\n!bSet map_lavahighlevel 120\n!bSet map_lavalowlevel 74\n!bSet map_lavatidemode lavastarthigh\n!bset debugcommands extremebelow -25 0.125\n!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg\n```\n\n## Supreme Isthmus - 10m grace - slight higher lava\nA 10 minute high and rest of game lower tide which makes a wide front but not open entirely.\nIncluded also managed height differential of the map with extremebelow.\n```\n!map Supreme Isthmus v2.1\n!bSet map_lavatiderhythm enabled\n!bSet map_lavahighdwell 600\n!bSet map_lavalowdwell 10000\n!bSet map_waterlevel -70\n!bSet map_lavahighlevel 90\n!bSet map_lavalowlevel 55\n!bSet map_lavatidemode lavastarthigh\n!bset debugcommands extremebelow -25 0.125\n!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg\n```\n\n## Supreme Isthmus - 7/5 tides\nThis is a 7 minute high, 5 minute low tide. 7minute middle is closer for t1 units.\nIt's enough to cross the middle for 5minutes..\n```effect\n!map Supreme Isthmus v2.1\n!bSet map_lavatiderhythm enabled\n!bSet map_lavahighdwell 420\n!bSet map_lavalowdwell 300\n!bSet map_waterlevel -70\n!bSet map_lavahighlevel 90\n!bSet map_lavalowlevel 70\n!bSet map_lavatidemode lavastarthigh\n!bset debugcommands extremebelow -25 0.125\n!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg\n```\n\n## Supreme Isthmus - 5/5 superlowtide\nOn a 5minute cycle. Lava goes lower so a very wide front is available.\n```\n!map Supreme Isthmus v2.1\n!bSet map_lavatiderhythm enabled\n!bSet map_lavahighdwell 300\n!bSet map_lavalowdwell 300\n!bSet map_waterlevel -70\n!bSet map_lavahighlevel 90\n!bSet map_lavalowlevel 0\n!bSet map_lavatidemode lavastarthigh\n!bset debugcommands 0\n!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg\n```\n\n## Supreme Isthmus - 5/5 poof lava gone\nOn a 5minute cycle. Lava goes extreme low so its not there.\n```\n!map Supreme Isthmus v2.1\n!bSet map_lavatiderhythm enabled\n!bSet map_lavahighdwell 300\n!bSet map_lavalowdwell 300\n!bSet map_waterlevel -150\n!bSet map_lavahighlevel 150\n!bSet map_lavalowlevel 0\n!bSet map_lavatidemode lavastarthigh\n!bset debugcommands 0\n!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg\n```\n\n## Supreme Isthmus - Front open & Hovers work\nContinuous low tide\n```\n!map Supreme Isthmus v2.1\n!bset map_waterislava 1\n!bset map_lavatiderhythm enabled\n!bset map_lavatidemode lavastarthigh\n!bset map_lavahighlevel 1\n!bset map_lavahighdwell 1\n!bSet map_waterlevel 0\n!bset map_lavalowlevel 0\n!bset map_lavalowdwell 3600\n!bset debugcommands extremebelow -25 0.125\n!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg\n```\n\n## Pinch point\nok.. settings.. fix ( std norm, low can be -20 -30)\n```\n!map Supreme Isthmus v2.1\n!bset map_waterislava 1\n!bset map_lavatiderhythm enabled\n!bset map_lavatidemode lavastarthigh\n!bset map_lavahighlevel 1\n!bset map_lavahighdwell 1\n!bset map_lavalowlevel 0\n!bset map_lavalowdwell 3600\n!bset debugcommands extremebelow -25 0.125\n!bset mapmetadata_startbox_override 0\n```\n\n## FolsomDamR 2v2 Lava\nA simple lava experience if you have a low amount of players. Lava stays high for 10 minutes, and then for 5 minutes the lava of the bottom half completel receeds.\n```\n!map FolsomDamR 1.17\n!bset map_waterislava 1\n!bset map_lavatiderhythm enabled\n!bset map_lavatidemode lavastarthigh\n!bset map_lavahighlevel 70\n!bset map_lavahighdwell 600\n!bset map_lavalowlevel 0\n!bset map_lavalowdwell 300\n!bset map_waterlevel -20\n!bset mapmetadata_startbox_override 0\n```\n\n## PtaQ map - 2 Lava Continents\n2 big landmasses seperated by a shallow lava river. Hovers can cross it, and otehr units with enough health. The lava river is not wide, making artillery attacks possible between the islands.\nAfter 10 minutes the lava between the islands lowers, making them one, but the surrounding lava does not receed.\n```\n!map Why did I let Ptaq talk me into this 1.0\n!bset map_waterislava 1\n!bset map_lavatiderhythm enabled\n!bset map_lavatidemode lavastarthigh\n!bset map_lavahighlevel 25\n!bset map_lavahighdwell 600\n!bset map_lavalowlevel 0\n!bset map_lavalowdwell 300\n!bset map_waterlevel -30\n!bset mapmetadata_startbox_override 0\n```\n\n## Adamantium Factory Lava FFA metalmap\nHuge amount of metal islands seperated by lava. lava is up for 4 minutes, and then stays low for 5\nWhats special about this configuration is that lava is not deep at all and doesnt slow much.\n```\n!map Adamantium Factory V1\n!bset map_waterislava 1\n!bset map_lavatiderhythm enabled\n!bset map_lavatidemode lavastarthigh\n!bset map_lavahighlevel 205\n!bset map_lavahighdwell 600\n!bset map_lavalowlevel 180\n!bset map_lavalowdwell 300\n!bset map_waterlevel 0\n!bset mapmetadata_startbox_override 0\n```\n",
+      "options": [
+        {
+          "slug": "supreme-isthmus-10m-grace-hovers-after",
+          "title": "Supreme Isthmus - 10m grace - hovers after",
+          "description": "A 10 minute high and rest of game lower tide which makes a wide front but not open entirely.\nIncluded also managed height differential of the map with extremebelow.\nIslands have some buildspace for AA/lrpcs if on. This allows for some more tactics, but also annoyances.",
+          "effectLines": [
+            "!map Supreme Isthmus v2.1",
+            "!bSet map_lavatiderhythm enabled",
+            "!bSet map_lavahighdwell 600",
+            "!bSet map_lavalowdwell 10000",
+            "!bSet map_waterlevel -100",
+            "!bSet map_lavahighlevel 120",
+            "!bSet map_lavalowlevel 74",
+            "!bSet map_lavatidemode lavastarthigh",
+            "!bset debugcommands extremebelow -25 0.125",
+            "!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "supreme-isthmus-10m-grace-slight-higher-lava",
+          "title": "Supreme Isthmus - 10m grace - slight higher lava",
+          "description": "A 10 minute high and rest of game lower tide which makes a wide front but not open entirely.\nIncluded also managed height differential of the map with extremebelow.",
+          "effectLines": [
+            "!map Supreme Isthmus v2.1",
+            "!bSet map_lavatiderhythm enabled",
+            "!bSet map_lavahighdwell 600",
+            "!bSet map_lavalowdwell 10000",
+            "!bSet map_waterlevel -70",
+            "!bSet map_lavahighlevel 90",
+            "!bSet map_lavalowlevel 55",
+            "!bSet map_lavatidemode lavastarthigh",
+            "!bset debugcommands extremebelow -25 0.125",
+            "!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "supreme-isthmus-7-5-tides",
+          "title": "Supreme Isthmus - 7/5 tides",
+          "description": "This is a 7 minute high, 5 minute low tide. 7minute middle is closer for t1 units.\nIt's enough to cross the middle for 5minutes..",
+          "effectLines": [
+            "!map Supreme Isthmus v2.1",
+            "!bSet map_lavatiderhythm enabled",
+            "!bSet map_lavahighdwell 420",
+            "!bSet map_lavalowdwell 300",
+            "!bSet map_waterlevel -70",
+            "!bSet map_lavahighlevel 90",
+            "!bSet map_lavalowlevel 70",
+            "!bSet map_lavatidemode lavastarthigh",
+            "!bset debugcommands extremebelow -25 0.125",
+            "!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "supreme-isthmus-5-5-superlowtide",
+          "title": "Supreme Isthmus - 5/5 superlowtide",
+          "description": "On a 5minute cycle. Lava goes lower so a very wide front is available.",
+          "effectLines": [
+            "!map Supreme Isthmus v2.1",
+            "!bSet map_lavatiderhythm enabled",
+            "!bSet map_lavahighdwell 300",
+            "!bSet map_lavalowdwell 300",
+            "!bSet map_waterlevel -70",
+            "!bSet map_lavahighlevel 90",
+            "!bSet map_lavalowlevel 0",
+            "!bSet map_lavatidemode lavastarthigh",
+            "!bset debugcommands 0",
+            "!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "supreme-isthmus-5-5-poof-lava-gone",
+          "title": "Supreme Isthmus - 5/5 poof lava gone",
+          "description": "On a 5minute cycle. Lava goes extreme low so its not there.",
+          "effectLines": [
+            "!map Supreme Isthmus v2.1",
+            "!bSet map_lavatiderhythm enabled",
+            "!bSet map_lavahighdwell 300",
+            "!bSet map_lavalowdwell 300",
+            "!bSet map_waterlevel -150",
+            "!bSet map_lavahighlevel 150",
+            "!bSet map_lavalowlevel 0",
+            "!bSet map_lavatidemode lavastarthigh",
+            "!bset debugcommands 0",
+            "!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "supreme-isthmus-front-open-hovers-work",
+          "title": "Supreme Isthmus - Front open & Hovers work",
+          "description": "Continuous low tide",
+          "effectLines": [
+            "!map Supreme Isthmus v2.1",
+            "!bset map_waterislava 1",
+            "!bset map_lavatiderhythm enabled",
+            "!bset map_lavatidemode lavastarthigh",
+            "!bset map_lavahighlevel 1",
+            "!bset map_lavahighdwell 1",
+            "!bSet map_waterlevel 0",
+            "!bset map_lavalowlevel 0",
+            "!bset map_lavalowdwell 3600",
+            "!bset debugcommands extremebelow -25 0.125",
+            "!bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "pinch-point",
+          "title": "Pinch point",
+          "description": "ok.. settings.. fix ( std norm, low can be -20 -30)",
+          "effectLines": [
+            "!map Supreme Isthmus v2.1",
+            "!bset map_waterislava 1",
+            "!bset map_lavatiderhythm enabled",
+            "!bset map_lavatidemode lavastarthigh",
+            "!bset map_lavahighlevel 1",
+            "!bset map_lavahighdwell 1",
+            "!bset map_lavalowlevel 0",
+            "!bset map_lavalowdwell 3600",
+            "!bset debugcommands extremebelow -25 0.125",
+            "!bset mapmetadata_startbox_override 0"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "folsomdamr-2v2-lava",
+          "title": "FolsomDamR 2v2 Lava",
+          "description": "A simple lava experience if you have a low amount of players. Lava stays high for 10 minutes, and then for 5 minutes the lava of the bottom half completel receeds.",
+          "effectLines": [
+            "!map FolsomDamR 1.17",
+            "!bset map_waterislava 1",
+            "!bset map_lavatiderhythm enabled",
+            "!bset map_lavatidemode lavastarthigh",
+            "!bset map_lavahighlevel 70",
+            "!bset map_lavahighdwell 600",
+            "!bset map_lavalowlevel 0",
+            "!bset map_lavalowdwell 300",
+            "!bset map_waterlevel -20",
+            "!bset mapmetadata_startbox_override 0"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "ptaq-map-2-lava-continents",
+          "title": "PtaQ map - 2 Lava Continents",
+          "description": "2 big landmasses seperated by a shallow lava river. Hovers can cross it, and otehr units with enough health. The lava river is not wide, making artillery attacks possible between the islands.\nAfter 10 minutes the lava between the islands lowers, making them one, but the surrounding lava does not receed.",
+          "effectLines": [
+            "!map Why did I let Ptaq talk me into this 1.0",
+            "!bset map_waterislava 1",
+            "!bset map_lavatiderhythm enabled",
+            "!bset map_lavatidemode lavastarthigh",
+            "!bset map_lavahighlevel 25",
+            "!bset map_lavahighdwell 600",
+            "!bset map_lavalowlevel 0",
+            "!bset map_lavalowdwell 300",
+            "!bset map_waterlevel -30",
+            "!bset mapmetadata_startbox_override 0"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "adamantium-factory-lava-ffa-metalmap",
+          "title": "Adamantium Factory Lava FFA metalmap",
+          "description": "Huge amount of metal islands seperated by lava. lava is up for 4 minutes, and then stays low for 5\nWhats special about this configuration is that lava is not deep at all and doesnt slow much.",
+          "effectLines": [
+            "!map Adamantium Factory V1",
+            "!bset map_waterislava 1",
+            "!bset map_lavatiderhythm enabled",
+            "!bset map_lavatidemode lavastarthigh",
+            "!bset map_lavahighlevel 205",
+            "!bset map_lavahighdwell 600",
+            "!bset map_lavalowlevel 180",
+            "!bset map_lavalowdwell 300",
+            "!bset map_waterlevel 0",
+            "!bset mapmetadata_startbox_override 0"
+          ],
+          "tweakRefs": []
+        }
+      ]
+    },
+    {
+      "name": "air",
+      "title": "Air",
+      "column": "left",
+      "info": "# Air\n\nChanges to air units.",
+      "choices": "# Air\nChanges to air units\n\n## Sky Operations + T3 air Rework\nMore expensive stuff. Air units drop their trasnsports as paratroopers as well as AA is improved.\n\n```effect\n!bSet unit_restrictions_noair 0\n@tweakdefs skyops\n@tweakdefs t3-air-rework\n```\n\n\n## Sky Operations\nMore expensive stuff. Air units drop their trasnsports as paratroopers as well as AA is improved.\n\n```effect\n!bSet unit_restrictions_noair 0\n@tweakdefs skyops\n```\n\n## Sky Operations Base para\nMore expensive stuff. AA is improved. Conplanes original cost.\n\n```effect\n!bSet unit_restrictions_noair 0\n@tweakdefs skyops-nopara\n```\n\n## Paratroopers\nNo fall damage for dying transports. AA is improved though.\n\n```effect\n!bSet unit_restrictions_noair 0\n@tweakdefs paratroopers\n@tweakdefs unlimited-screamers\n```\n\n## Normal air - burning CPU\nIf your CPU can take endgame ¯\\\\(ツ)/¯\n```effect\n!bSet unit_restrictions_noair 0\n```\n\n## Reduced air / airlimit\n\nThis is meant to change the way air is played in lava games. Disables T3 air, and limits every other air unit to 10 per player, except for bombers, dragons, liches,.. those are 1 per player only.\n\n- T3 air disabled\n- Air units are 10 per player.\n- Bombers and heavy air is 1 per player.\n\nThis still allows for air play at the cost of higher APM, but does not block the sun. Air attacks are possible, yet require coordination and can be thwarted by porcing behind AA.\nGreat when lootboxes is on, Then you need a minimal airforce to grab the lootboxes.\nAlso great if you want to reduce some spam and SkyOps is not enough.\n\n**Credits:** `slupka`\n\n```\n@tweakunits airlimit\n```\n\n## Air Off\nIn case you like long games.\nTurning on special unit 'EngiBoss' and or riot titan is highly recommended in this case.\n```\n!bSet unit_restrictions_noair 1\n```\n",
+      "options": [
+        {
+          "slug": "sky-operations-t3-air-rework",
+          "title": "Sky Operations + T3 air Rework",
+          "description": "More expensive stuff. Air units drop their trasnsports as paratroopers as well as AA is improved.",
+          "effectLines": [
+            "!bSet unit_restrictions_noair 0",
+            "@tweakdefs skyops",
+            "@tweakdefs t3-air-rework"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "skyops"
+            },
+            {
+              "kind": "tweakdefs",
+              "name": "t3-air-rework"
+            }
+          ]
+        },
+        {
+          "slug": "sky-operations",
+          "title": "Sky Operations",
+          "description": "More expensive stuff. Air units drop their trasnsports as paratroopers as well as AA is improved.",
+          "effectLines": [
+            "!bSet unit_restrictions_noair 0",
+            "@tweakdefs skyops"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "skyops"
+            }
+          ]
+        },
+        {
+          "slug": "sky-operations-base-para",
+          "title": "Sky Operations Base para",
+          "description": "More expensive stuff. AA is improved. Conplanes original cost.",
+          "effectLines": [
+            "!bSet unit_restrictions_noair 0",
+            "@tweakdefs skyops-nopara"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "skyops-nopara"
+            }
+          ]
+        },
+        {
+          "slug": "paratroopers",
+          "title": "Paratroopers",
+          "description": "No fall damage for dying transports. AA is improved though.",
+          "effectLines": [
+            "!bSet unit_restrictions_noair 0",
+            "@tweakdefs paratroopers",
+            "@tweakdefs unlimited-screamers"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "paratroopers"
+            },
+            {
+              "kind": "tweakdefs",
+              "name": "unlimited-screamers"
+            }
+          ]
+        },
+        {
+          "slug": "normal-air-burning-cpu",
+          "title": "Normal air - burning CPU",
+          "description": "If your CPU can take endgame ¯\\\\(ツ)/¯",
+          "effectLines": [
+            "!bSet unit_restrictions_noair 0"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "reduced-air-airlimit",
+          "title": "Reduced air / airlimit",
+          "description": "This is meant to change the way air is played in lava games. Disables T3 air, and limits every other air unit to 10 per player, except for bombers, dragons, liches,.. those are 1 per player only.\n\n- T3 air disabled\n- Air units are 10 per player.\n- Bombers and heavy air is 1 per player.\n\nThis still allows for air play at the cost of higher APM, but does not block the sun. Air attacks are possible, yet require coordination and can be thwarted by porcing behind AA.\nGreat when lootboxes is on, Then you need a minimal airforce to grab the lootboxes.\nAlso great if you want to reduce some spam and SkyOps is not enough.\n\n**Credits:** `slupka`",
+          "effectLines": [
+            "@tweakunits airlimit"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakunits",
+              "name": "airlimit"
+            }
+          ]
+        },
+        {
+          "slug": "air-off",
+          "title": "Air Off",
+          "description": "In case you like long games.\nTurning on special unit 'EngiBoss' and or riot titan is highly recommended in this case.",
+          "effectLines": [
+            "!bSet unit_restrictions_noair 1"
+          ],
+          "tweakRefs": []
+        }
+      ]
+    },
+    {
+      "name": "lrpc",
+      "title": "Long range plasma",
+      "column": "left",
+      "info": "# Long range plasma\n\nWhat about lolcannons and other long range plasma pew pew?",
+      "choices": "# Long range plasma\n\nWhat about lolcannons and other long range plasma pew pew?\n\n## No ragnarok/calamity/starfall\nEndgame LRPC are off. Yay!!  \n*Otherwise it's just a race to who has the first ragnarok/calamity and kill the front.*\n```effect\n!bSet unit_restrictions_noendgamelrpc 1\n!bSet unit_restrictions_nolrpc 0\n```\n\n## Extra towers\nExtra towers pack (Zop).. So moar shortrange LRPC's miniragn etc.. just no endgame lolcannons.\n```\n!bSet unit_restrictions_noendgamelrpc 1\n!bSet unit_restrictions_nolrpc 1\n@tweakdefs extra-towers\n```\nSource: https://github.com/ZopMaxima/BAR/blob/main/Tweaks/TweakDefs_ExtraTowers.lua\nCredits: ZopMaxima\n\n## All LRPC off\nEndgame and normal LRPC are off\n\n```effect\n!bSet unit_restrictions_noendgamelrpc 1\n!bSet unit_restrictions_nolrpc 1\n```\n\n",
+      "options": [
+        {
+          "slug": "no-ragnarok-calamity-starfall",
+          "title": "No ragnarok/calamity/starfall",
+          "description": "Endgame LRPC are off. Yay!!  \n*Otherwise it's just a race to who has the first ragnarok/calamity and kill the front.*",
+          "effectLines": [
+            "!bSet unit_restrictions_noendgamelrpc 1",
+            "!bSet unit_restrictions_nolrpc 0"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "extra-towers",
+          "title": "Extra towers",
+          "description": "Extra towers pack (Zop).. So moar shortrange LRPC's miniragn etc.. just no endgame lolcannons.\nSource: https://github.com/ZopMaxima/BAR/blob/main/Tweaks/TweakDefs_ExtraTowers.lua\nCredits: ZopMaxima",
+          "effectLines": [
+            "!bSet unit_restrictions_noendgamelrpc 1",
+            "!bSet unit_restrictions_nolrpc 1",
+            "@tweakdefs extra-towers"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "extra-towers"
+            }
+          ]
+        },
+        {
+          "slug": "all-lrpc-off",
+          "title": "All LRPC off",
+          "description": "Endgame and normal LRPC are off",
+          "effectLines": [
+            "!bSet unit_restrictions_noendgamelrpc 1",
+            "!bSet unit_restrictions_nolrpc 1"
+          ],
+          "tweakRefs": []
+        }
+      ]
+    },
+    {
+      "name": "commanders",
+      "title": "Commanders",
+      "column": "right",
+      "info": "# Commanders\n\nChanges to commanders.",
+      "choices": "# Commanders\nChanges to commanders\n\n## Standard commanders\nStandard commanders.\n\n```effect\n!bSet evocom 0\n```\n\n## Leveling commanders\nCommanders get stronger with experience & time \n\n```effect\n!bSet evocom 1\n```",
+      "options": [
+        {
+          "slug": "standard-commanders",
+          "title": "Standard commanders",
+          "description": "Standard commanders.",
+          "effectLines": [
+            "!bSet evocom 0"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "leveling-commanders",
+          "title": "Leveling commanders",
+          "description": "Commanders get stronger with experience & time",
+          "effectLines": [
+            "!bSet evocom 1"
+          ],
+          "tweakRefs": []
+        }
+      ]
+    },
+    {
+      "name": "nukes",
+      "title": "Nukes",
+      "column": "right",
+      "info": "# Nukes\n\nThings about nukes... they still can be buggy.",
+      "choices": "# Nukes\n\nThings about nukes... they still can be buggy.\n\n## Just big expensive nuke\nOne big expensive ICBM. Can't be stopped - if you have like 15-20M metal costs.\n\n```effect\n!unit_restrictions_nonukes 1\n@tweakdefs one-big-nuke\n```\n\n## One nuke / anti-nuke\nOne Armada nuke each.\n\n```effect\n!unit_restrictions_nonukes 0\n@tweakdefs one-nuke-arm\n```\n\n## Both. Both is good\nOne big expensive ICBM + One Armada nuke each.\n\n```effect\n!unit_restrictions_nonukes 0\n@tweakdefs one-nuke-arm\n@tweakdefs one-big-nuke\n```\n\n## Definitely no nukes\nIt keeps being buggy if alot of nuke launchers. So off is a safe choice.\n\n```effect\n!unit_restrictions_nonukes 1\n```\n\n## Nukes allowed \nAre we sure here?\n```effect\n!unit_restrictions_nonukes 0\n```",
+      "options": [
+        {
+          "slug": "just-big-expensive-nuke",
+          "title": "Just big expensive nuke",
+          "description": "One big expensive ICBM. Can't be stopped - if you have like 15-20M metal costs.",
+          "effectLines": [
+            "!unit_restrictions_nonukes 1",
+            "@tweakdefs one-big-nuke"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "one-big-nuke"
+            }
+          ]
+        },
+        {
+          "slug": "one-nuke-anti-nuke",
+          "title": "One nuke / anti-nuke",
+          "description": "One Armada nuke each.",
+          "effectLines": [
+            "!unit_restrictions_nonukes 0",
+            "@tweakdefs one-nuke-arm"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "one-nuke-arm"
+            }
+          ]
+        },
+        {
+          "slug": "both-both-is-good",
+          "title": "Both. Both is good",
+          "description": "One big expensive ICBM + One Armada nuke each.",
+          "effectLines": [
+            "!unit_restrictions_nonukes 0",
+            "@tweakdefs one-nuke-arm",
+            "@tweakdefs one-big-nuke"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "one-nuke-arm"
+            },
+            {
+              "kind": "tweakdefs",
+              "name": "one-big-nuke"
+            }
+          ]
+        },
+        {
+          "slug": "definitely-no-nukes",
+          "title": "Definitely no nukes",
+          "description": "It keeps being buggy if alot of nuke launchers. So off is a safe choice.",
+          "effectLines": [
+            "!unit_restrictions_nonukes 1"
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "nukes-allowed",
+          "title": "Nukes allowed",
+          "description": "Are we sure here?",
+          "effectLines": [
+            "!unit_restrictions_nonukes 0"
+          ],
+          "tweakRefs": []
+        }
+      ]
+    },
+    {
+      "name": "special-units",
+      "title": "Special units",
+      "column": "right",
+      "info": "# Special units\n\nAdding a boss unit of some form?",
+      "choices": "# Special units\n\nAdding a boss unit of some form?\n\n## Riot titan + SCAV\nTitans with shielding and emp.. but not alot of dmg.\n\n```effect\n@tweakdefs riot-titan\n@tweakdefs scav-apex\n```\n\n## Riot titan\nTitans with shielding and emp.. but not alot of dmg.\n\n```effect\n@tweakdefs riot-titan\n```\n\n## No extras units.\nMo special changes, just normal.\n\n```effect\n```\n\n## Engiman Epic Commander\nMax 1 per player extra boss unit... very strong.\n\n```effect\n@tweakunits epic-commander\n```\n\n\n## Riot & Epic com\nTitans with shielding and emp.. but not alot of dmg.\n\n```effect\n@tweakunits epic-commander\n@tweakdefs riot-titan\n```\n",
+      "options": [
+        {
+          "slug": "riot-titan-scav",
+          "title": "Riot titan + SCAV",
+          "description": "Titans with shielding and emp.. but not alot of dmg.",
+          "effectLines": [
+            "@tweakdefs riot-titan",
+            "@tweakdefs scav-apex"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "riot-titan"
+            },
+            {
+              "kind": "tweakdefs",
+              "name": "scav-apex"
+            }
+          ]
+        },
+        {
+          "slug": "riot-titan",
+          "title": "Riot titan",
+          "description": "Titans with shielding and emp.. but not alot of dmg.",
+          "effectLines": [
+            "@tweakdefs riot-titan"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "riot-titan"
+            }
+          ]
+        },
+        {
+          "slug": "no-extras-units",
+          "title": "No extras units.",
+          "description": "Mo special changes, just normal.",
+          "effectLines": [],
+          "tweakRefs": []
+        },
+        {
+          "slug": "engiman-epic-commander",
+          "title": "Engiman Epic Commander",
+          "description": "Max 1 per player extra boss unit... very strong.",
+          "effectLines": [
+            "@tweakunits epic-commander"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakunits",
+              "name": "epic-commander"
+            }
+          ]
+        },
+        {
+          "slug": "riot-epic-com",
+          "title": "Riot & Epic com",
+          "description": "Titans with shielding and emp.. but not alot of dmg.",
+          "effectLines": [
+            "@tweakunits epic-commander",
+            "@tweakdefs riot-titan"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakunits",
+              "name": "epic-commander"
+            },
+            {
+              "kind": "tweakdefs",
+              "name": "riot-titan"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "stealth-units",
+      "title": "Stealth units",
+      "column": "right",
+      "info": "# Stealth units\n\nSome people dont like their bases exploded. Here is some training wheels.",
+      "choices": "# Stealth units\n\nSome people dont like their bases exploded....\nHere is some training wheels.\n\n## Allow stealth + Commando rework\nWith Epic Commando's\n\n```\n@tweakdefs commando-pack\n```\n\n## Allow stealth\nYes we like exploding nooby bases who don't have defenses against stealth.\n```\n\n```\n\n## Some Stealth Off\nNo epic commando's\n\n```effect\n@tweakdefs epic-commando-off\n```\n",
+      "options": [
+        {
+          "slug": "allow-stealth-commando-rework",
+          "title": "Allow stealth + Commando rework",
+          "description": "With Epic Commando's",
+          "effectLines": [
+            "@tweakdefs commando-pack"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "commando-pack"
+            }
+          ]
+        },
+        {
+          "slug": "allow-stealth",
+          "title": "Allow stealth",
+          "description": "Yes we like exploding nooby bases who don't have defenses against stealth.",
+          "effectLines": [
+            ""
+          ],
+          "tweakRefs": []
+        },
+        {
+          "slug": "some-stealth-off",
+          "title": "Some Stealth Off",
+          "description": "No epic commando's",
+          "effectLines": [
+            "@tweakdefs epic-commando-off"
+          ],
+          "tweakRefs": [
+            {
+              "kind": "tweakdefs",
+              "name": "epic-commando-off"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
