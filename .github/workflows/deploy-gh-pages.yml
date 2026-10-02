@@ -47,11 +47,41 @@ jobs:
         # --base-href must match the GitHub Pages project URL path.
         run: npm run build -- --base-href "${{ steps.pages.outputs.base_path }}/"
 
-      - name: SPA fallback for GitHub Pages
-        # GitHub Pages is a static server and would 404 on client-side routes
-        # like /tweaks/lavapack. Serving a copy of index.html as 404.html lets
-        # Angular bootstrap and the router take over the real URL.
-        run: cp dist/lava-config2/browser/index.html dist/lava-config2/browser/404.html
+      - name: SPA redirect fallback for GitHub Pages
+        # On a static host, deep links like /tweaks/lavapack hit a non-existent
+        # file and GitHub Pages serves 404.html. Redirect to the hash-route form
+        # (e.g. /lava-config/#/tweaks/lavapack) so the address bar updates and
+        # Angular's HashLocationStrategy takes over cleanly.
+        env:
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+        run: |
+          cat > dist/lava-config2/browser/404.html <<HTML
+          <!doctype html>
+          <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <title>Redirecting…</title>
+            <script>
+              (function () {
+                var base = "${BASE_PATH}/";
+                var p = window.location.pathname;
+                var route;
+                if (p === base || p === base.slice(0, -1)) {
+                  route = "";
+                } else if (p.indexOf(base) === 0) {
+                  route = p.slice(base.length);
+                } else {
+                  route = p.replace(/^\//, "");
+                }
+                route = route.replace(/index\.html$/, "").replace(/^\/+/, "").replace(/\/+$/, "");
+                var target = base + "#/" + route + window.location.search;
+                window.location.replace(target);
+              })();
+            </script>
+          </head>
+          <body>Redirecting…</body>
+          </html>
+          HTML
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
