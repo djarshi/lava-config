@@ -47,6 +47,12 @@ jobs:
         # --base-href must match the GitHub Pages project URL path.
         run: npm run build -- --base-href "${{ steps.pages.outputs.base_path }}/"
 
+      - name: SPA fallback for GitHub Pages
+        # GitHub Pages is a static server and would 404 on client-side routes
+        # like /tweaks/lavapack. Serving a copy of index.html as 404.html lets
+        # Angular bootstrap and the router take over the real URL.
+        run: cp dist/lava-config2/browser/index.html dist/lava-config2/browser/404.html
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
