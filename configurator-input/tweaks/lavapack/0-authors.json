@@ -1,10 +1,10 @@
 {
   "authors": [
     { "name": "djarshi", "role": "developer" },
-    { "name": "txpera", "role": "supporter" },
     { "name": "zopmaxima", "role": "supporter" },
     { "name": "tyleno", "role": "supporter" },
-    { "name": "songi", "role": "supporter" },
-    { "name": "inimitable-wolf", "role": "supporter" }
+    { "name": "inimitable-wolf", "role": "supporter" },
+    { "name": "txpera", "role": "supporter" },
+    { "name": "songi", "role": "supporter" }
   ]
 }
