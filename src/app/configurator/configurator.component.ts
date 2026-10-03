@@ -41,7 +41,7 @@ interface UsedTweakRow {
           <span class="ml-auto text-xs font-normal text-zinc-500 dark:text-zinc-400">Do you like Dgunning from transports or not in lava games?</span>
         </summary>
         <iframe
-          src="https://strawpoll.com/embed/NMnQNxdx1g6"
+          src="https://strawpoll.com/embed/NMnQNxdo1g6"
           title="Strawpoll vote"
           loading="lazy"
           class="mt-2 h-[360px] w-full rounded-md border border-zinc-200 dark:border-zinc-700"
