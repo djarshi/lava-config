@@ -32,6 +32,23 @@ interface UsedTweakRow {
   standalone: true,
   imports: [FormsModule, RouterLink, LuaViewerComponent],
   template: `
+    <!-- Strawpoll vote -->
+    <section class="lava-panel mb-4">
+      <details>
+        <summary class="flex cursor-pointer items-center gap-2 text-sm font-semibold text-zinc-900 dark:text-white">
+          <i class="bi bi-bar-chart-line text-lava-orange"></i> Vote in the strawpoll
+          <span class="ml-1 inline-flex items-center gap-1 rounded-full border border-lava-orange/60 px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wider text-lava-orange animate-pulse hover:no-underline"><i class="bi bi-arrow-right-circle-fill"></i> look here · click to expand</span>
+          <span class="ml-auto text-xs font-normal text-zinc-500 dark:text-zinc-400">Do you like Dgunning from transports or not in lava games?</span>
+        </summary>
+        <iframe
+          src="https://strawpoll.com/embed/NMnQNxdx1g6"
+          title="Strawpoll vote"
+          loading="lazy"
+          class="mt-2 h-[360px] w-full rounded-md border border-zinc-200 dark:border-zinc-700"
+          allowfullscreen></iframe>
+      </details>
+    </section>
+
     <div class="grid grid-cols-1 gap-4 lg:grid-cols-2">
       <!-- Left column dropdowns -->
       <section class="lava-panel">
