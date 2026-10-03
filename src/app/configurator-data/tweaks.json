@@ -135,10 +135,6 @@
           "role": "developer"
         },
         {
-          "name": "txpera",
-          "role": "supporter"
-        },
-        {
           "name": "zopmaxima",
           "role": "supporter"
         },
@@ -147,11 +143,15 @@
           "role": "supporter"
         },
         {
-          "name": "songi",
+          "name": "inimitable-wolf",
           "role": "supporter"
         },
         {
-          "name": "inimitable-wolf",
+          "name": "txpera",
+          "role": "supporter"
+        },
+        {
+          "name": "songi",
           "role": "supporter"
         }
       ],

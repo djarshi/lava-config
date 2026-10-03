@@ -48,6 +48,17 @@ interface TabDef {
                [class.bi-sun-fill]="theme.theme() === 'dark'"
                [class.bi-moon-stars-fill]="theme.theme() === 'light'"></i>
           </button>
+
+          <!-- GitHub repo -->
+          <a
+            class="lava-tabs-link ml-1"
+            href="https://github.com/djarshi/lava-config"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="GitHub repo"
+          >
+            <i class="bi bi-github"></i>
+          </a>
         </nav>
 
         <!-- Mobile hamburger -->
