@@ -95,7 +95,10 @@ import { beautifyLua } from './lua-beautify';
           @if (copiedField() === 'luaOut') {
             <span class="text-xs font-medium text-emerald-600 dark:text-emerald-400">Copied!</span>
           }
-          <span class="ml-auto text-[0.65rem] text-zinc-400 dark:text-zinc-500">{{ charCount(luaOut()) }}</span>
+          <span class="ml-auto max-w-[60%] text-right text-[0.65rem] leading-tight text-zinc-400 dark:text-zinc-500">
+            Encoding strips comments (except the first line) and minifies the Lua to optimize the Base64 length.
+          </span>
+          <span class="shrink-0 text-[0.65rem] text-zinc-400 dark:text-zinc-500">{{ charCount(luaOut()) }}</span>
         </div>
       </div>
 
