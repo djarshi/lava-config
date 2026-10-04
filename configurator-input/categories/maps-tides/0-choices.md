@@ -12,15 +12,15 @@ Islands have some buildspace for AA/lrpcs if on. This allows for some more tacti
 !bSet map_lavatiderhythm enabled
 !bSet map_lavahighdwell 600
 !bSet map_lavalowdwell 10000
-!bSet map_waterlevel -100
-!bSet map_lavahighlevel 120
-!bSet map_lavalowlevel 74
+!bSet map_waterlevel -26
+!bSet map_lavahighlevel 56
+!bSet map_lavalowlevel 0
 !bSet map_lavatidemode lavastarthigh
 !bset debugcommands extremebelow -25 0.125
 !bset mapmetadata_startbox_override eJx90TsOgzAQBNC7uKbwLv5fJaJIJJQUUYjABQj57lFYp8rgDulp7BmzqyVf53yb1nFR6bKr9_Tcjo8lz-Prnh8qUadWlWKnNpWIQ-n-sRfUESG7lloSJXhw-KlDGrVob2HWiFp8cm0VdOveyLCz3MsaZik2s4LeIKx7LJfhy6c_g0j6OTicSLYZWIDI1PZY_aEeopFpOOnDgbhSlN0MlbUMtyfvyVKpxyqFI8662NL6I8PJQ0k2mDKUoXwAyBHqwg
 ```
 
-## Supreme Isthmus - 10m grace - slight higher lava
+## Supreme Isthmus - 10m grace - lava no hovers
 A 10 minute high and rest of game lower tide which makes a wide front but not open entirely.
 Included also managed height differential of the map with extremebelow.
 ```
