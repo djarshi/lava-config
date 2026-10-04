@@ -23,8 +23,13 @@ Categorization runs after weapon setup so weapon target categories are authorita
 **LRAA reliability rework** (`tweakScreamers`-adjacent) — long-range anti-air weapons overhauled:
 - Reload ×0.5, vtol damage ×0.25, split into two weapons with distinct `proximitypriority` (1 / -1) for better targeting.
 - Overpenetration moved to customparams with `overpenetrate_falloff`; `noExplode`, `projectiles = 2`, `sprayangle = 1080`, burst 4 → 2, range ×1.1 (was ×1.25), vtol damage ×0.125.
-- Legion carrier gains an AA drone escort: spawns `legheavydroneaa` (a half-health, AA-only `legheavydrone` clone) via a drone-controller weapon; up to 4 drones, engagement range half the weapon range.
 - Generic screamer vtol damage ×1.5 (was ×2).
+
+## 1.4.0
+- Fixed error Black Hydra AA, all following weapons will apply properly again.
+- Commanders are no longer paratroopers unless slow transport is enabled in advanced options.
+- Removed Epic Tyrannus drones. (Ineffective and buggy, with every update.)
+- Added broadside targeting to Epic Tyrannus. (The flagship vs flagship weapons that can be seen between Arm / Cor.)
 
 ## 1.3.2
 - Air price/energy tax now also applies to T2+ transports (`techlevel > 1`); removed the separate halved `mcMul` for transports.
