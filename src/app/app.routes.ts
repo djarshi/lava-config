@@ -23,6 +23,16 @@ export const routes: Routes = [
     loadComponent: () => import('./encoder/encoder.component').then((m) => m.EncoderComponent),
   },
   {
+    path: 'replays',
+    title: 'Replays — Lava configurator',
+    loadComponent: () => import('./replays/replays.component').then((m) => m.ReplaysComponent),
+  },
+  {
+    path: 'replays/:gameId',
+    title: 'Replay — Lava configurator',
+    loadComponent: () => import('./replays/replay-detail.component').then((m) => m.ReplayDetailComponent),
+  },
+  {
     path: 'links',
     title: 'Links — Lava configurator',
     loadComponent: () => import('./links/links.component').then((m) => m.LinksComponent),
