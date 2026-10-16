@@ -1,8 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-import { ReplayApiService, ReplayListItem } from './replay-api.service';
+import { ReplayApiService, ReplayListItem, ListOptions } from './replay-api.service';
 
 /**
  * Replays selector page. Lists recent games from the BAR replays API, with the
@@ -22,6 +22,8 @@ interface LoadState {
   loading: boolean;
   error: string;
   items: ReplayListItem[];
+  /** Human-readable progress line while scanning for lava games. */
+  progress: string;
 }
 
 @Component({
@@ -120,7 +122,7 @@ interface LoadState {
             } @empty {
               <tr>
                 <td colspan="4" class="py-10 text-center text-sm text-zinc-500 dark:text-zinc-400">
-                  @if (state().loading) { Loading replays… } @else { No replays found. Try a different filter. }
+                  @if (state().loading) { {{ state().progress || 'Loading replays…' }} } @else { No replays found. Try a different filter. }
                 </td>
               </tr>
             }
@@ -155,9 +157,18 @@ export class ReplaysComponent {
   readonly playerFilter = signal('');
   readonly limit = signal(25);
   readonly endedOnly = signal(true);
+  readonly noBots = signal(true);
+  /** When true, fetch each listed replay's details and keep only games with
+   *  gameSettings.map_waterislava === '1'. Slow (N detail calls per page). */
+  readonly lavaOnly = signal(true);
   readonly page = signal(1);
 
-  readonly state = signal<LoadState>({ loading: false, error: '', items: [] });
+  readonly state = signal<LoadState>({ loading: false, error: '', items: [], progress: '' });
+
+  /** Whether the last scan saw a short list page (so there's no next page). */
+  private readonly lastPageShort = signal(false);
+
+  canNextPage = computed(() => !this.lastPageShort() && this.state().items.length > 0);
 
   constructor() {
     this.title.setTitle('Replays — Lava configurator');
@@ -168,23 +179,104 @@ export class ReplaysComponent {
   async load(page: number): Promise<void> {
     if (page < 1) return;
     this.page.set(page);
-    this.state.set({ loading: true, error: '', items: [] });
+    this.state.set({ loading: true, error: '', items: [], progress: '' });
     try {
-      const res = await this.api.list({
-        map: this.mapFilter(),
-        players: this.playerFilter().trim() || undefined,
-        page,
-        limit: this.limit(),
-        endedNormally: this.endedOnly(),
-      });
-      this.state.set({ loading: false, error: '', items: res.data ?? [] });
+      if (!this.lavaOnly()) {
+        const res = await this.api.list(this.listOpts(page));
+        this.lastPageShort.set((res.data?.length ?? 0) < this.limit());
+        this.state.set({ loading: false, error: '', items: res.data ?? [], progress: '' });
+        return;
+      }
+      await this.loadLavaScan(page);
     } catch (e) {
       this.state.set({
         loading: false,
         error: (e as Error).message || 'Failed to load replays.',
         items: [],
+        progress: '',
       });
     }
+  }
+
+  /** Fetch list pages and probe each replay's details until we have `limit`
+   *  lava games (map_waterislava=1) or run out of pages. */
+  private async loadLavaScan(startPage: number): Promise<void> {
+    const want = this.limit();
+    const maxPages = 6;
+    const collected: ReplayListItem[] = [];
+    let scanned = 0;
+    let reachedEnd = false;
+
+    for (let pi = 0; pi < maxPages && collected.length < want; pi++) {
+      const p = startPage + pi;
+      const res = await this.api.list(this.listOpts(p));
+      const items = res.data ?? [];
+      if (items.length < this.limit()) reachedEnd = true;
+      if (!items.length) { reachedEnd = true; break; }
+
+      const lava = await this.filterLavaGames(items, collected.length, scanned);
+      for (const x of lava) {
+        if (collected.length < want) collected.push(x);
+      }
+      scanned += items.length;
+      this.state.set({
+        loading: true,
+        error: '',
+        items: [...collected],
+        progress: `Scanning for lava games… ${collected.length} found in ${scanned} scanned`,
+      });
+      if (reachedEnd) break;
+    }
+
+    this.lastPageShort.set(reachedEnd || collected.length < want);
+    this.state.set({
+      loading: false,
+      error: '',
+      items: collected,
+      progress: collected.length
+        ? `Found ${collected.length} lava game(s) in ${scanned} scanned.`
+        : `No lava games (map_waterislava=1) in ${scanned} scanned replays.`,
+    });
+  }
+
+  /** Probe details concurrently (limit 8) and return only lava games. */
+  private async filterLavaGames(
+    items: ReplayListItem[],
+    have: number,
+    scannedSoFar: number,
+  ): Promise<ReplayListItem[]> {
+    const out: ReplayListItem[] = [];
+    let done = 0;
+    let idx = 0;
+    const workers = Array.from({ length: Math.min(8, items.length) }, async () => {
+      while (idx < items.length) {
+        const item = items[idx++];
+        try {
+          const d = await this.api.get(item.id);
+          if (d?.gameSettings?.['map_waterislava'] === '1') out.push(item);
+        } catch {
+          // ignore individual failures — keep scanning the rest
+        }
+        done++;
+        this.state.update((s) => ({
+          ...s,
+          progress: `Scanning for lava games… ${have + out.length} found in ${scannedSoFar + done} scanned`,
+        }));
+      }
+    });
+    await Promise.all(workers);
+    return out;
+  }
+
+  private listOpts(page: number): ListOptions {
+    return {
+      map: this.mapFilter(),
+      players: this.playerFilter().trim() || undefined,
+      page,
+      limit: this.limit(),
+      endedNormally: this.endedOnly(),
+      hasBots: this.noBots() ? false : undefined,
+    };
   }
 
   open(id: string): void {

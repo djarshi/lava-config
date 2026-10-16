@@ -75,6 +75,9 @@ export interface ListOptions {
 export class ReplayApiService {
   private readonly base = 'https://api.bar-rts.com/replays';
   private readonly maxAttempts = 4;
+  /** Cache of already-fetched detail responses, so the list-page lava scan
+   *  and the detail page don't double-fetch the same replay. */
+  private readonly detailCache = new Map<string, ReplayDetail>();
 
   async list(opts: ListOptions = {}): Promise<ReplayListResponse> {
     const params = new URLSearchParams();
@@ -88,7 +91,16 @@ export class ReplayApiService {
   }
 
   async get(id: string): Promise<ReplayDetail> {
-    return this.fetchWithRetry<ReplayDetail>(`${this.base}/${id}`);
+    const cached = this.detailCache.get(id);
+    if (cached) return cached;
+    const detail = await this.fetchWithRetry<ReplayDetail>(`${this.base}/${id}`);
+    this.detailCache.set(id, detail);
+    return detail;
+  }
+
+  /** Was this replay's detail already fetched (and cached)? */
+  hasDetail(id: string): boolean {
+    return this.detailCache.has(id);
   }
 
   private async fetchWithRetry<T>(url: string): Promise<T> {
