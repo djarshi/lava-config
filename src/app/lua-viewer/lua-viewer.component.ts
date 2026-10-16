@@ -26,7 +26,8 @@ import { beautifyLua } from '../encoder/lua-beautify';
             <div class="flex items-center gap-1">
               <button type="button"
                       class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-700 dark:hover:text-white"
-                      (click)="toggleBeautify()" [title]="beautifyOn() ? 'Show original source' : 'Re-indent the Lua'">
+                      (click)="toggleBeautify()" [title]="beautifyOn() ? 'Show original source' : 'Re-indent the Lua'"
+                      [hidden]="beautifyByDefault()">
                 <i class="bi" [class.bi-magic]="!beautifyOn()" [class.bi-code-square]="beautifyOn()"></i>
                 {{ beautifyOn() ? 'Raw' : 'Beautify' }}
               </button>
@@ -60,6 +61,8 @@ export class LuaViewerComponent {
   readonly name = input('');
   readonly title = input('');
   readonly lua = input('');
+  /** When true, open with the source beautified and hide the Beautify toggle. */
+  readonly beautifyByDefault = input(false);
   readonly close = output<void>();
 
   /** When true, run the source through beautifyLua (re-indent) before showing. */
@@ -70,7 +73,7 @@ export class LuaViewerComponent {
   // Reset beautify state whenever the modal is (re)opened.
   constructor() {
     effect(() => {
-      if (this.open()) this.beautifyOn.set(false);
+      if (this.open()) this.beautifyOn.set(this.beautifyByDefault());
     });
   }
 

@@ -183,6 +183,7 @@ interface DetailState {
       [name]="viewerName()"
       [title]="viewerTitle()"
       [lua]="viewerLua()"
+      [beautifyByDefault]="true"
       (close)="closeViewer()" />
   `,
   styles: [],
