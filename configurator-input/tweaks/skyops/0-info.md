@@ -25,6 +25,14 @@ Categorization runs after weapon setup so weapon target categories are authorita
 - Overpenetration moved to customparams with `overpenetrate_falloff`; `noExplode`, `projectiles = 2`, `sprayangle = 1080`, burst 4 → 2, range ×1.1 (was ×1.25), vtol damage ×0.125.
 - Generic screamer vtol damage ×1.5 (was ×2).
 
+## 1.4.5
+- Commander now gains paratrooper via the evolution timer (~10 min, or the first lava tide) instead of being gated only by the slow-transport toggle. The evolved `*pt` variant gets `paratrooper = true` and `armordef = 'commanders'`; announcement changed to "Commander Paratrooper Unlocked".
+- Removed the Epic Dragon (Snowflake / `corcrwt4`) special pricing block — it now follows the normal air-price rules.
+- Formatting pass: semicolons, dropped section comments, line reflow. No other balance changes.
+
+## 1.4.2
+- Interim version with the slow-transport commander gate (`comm_trans_slow`) and the Epic Dragon pricing override still in place.
+
 ## 1.4.0
 - Fixed error Black Hydra AA, all following weapons will apply properly again.
 - Commanders are no longer paratroopers unless slow transport is enabled in advanced options.
