@@ -1,4 +1,5 @@
-import { Component, HostListener, computed, input, output } from '@angular/core';
+import { Component, HostListener, computed, effect, input, output, signal } from '@angular/core';
+import { beautifyLua } from '../encoder/lua-beautify';
 
 /**
  * Reusable modal that shows Lua source with line numbers and syntax
@@ -22,11 +23,25 @@ import { Component, HostListener, computed, input, output } from '@angular/core'
               <span class="text-zinc-300 dark:text-zinc-600">·</span>
               <span>{{ title() }}</span>
             </h3>
-            <button type="button"
-                    class="inline-flex items-center justify-center rounded-md px-2 py-1 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-700 dark:hover:text-white"
-                    (click)="close.emit()" title="Close">
-              <i class="bi bi-x-lg"></i>
-            </button>
+            <div class="flex items-center gap-1">
+              <button type="button"
+                      class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-700 dark:hover:text-white"
+                      (click)="toggleBeautify()" [title]="beautifyOn() ? 'Show original source' : 'Re-indent the Lua'">
+                <i class="bi" [class.bi-magic]="!beautifyOn()" [class.bi-code-square]="beautifyOn()"></i>
+                {{ beautifyOn() ? 'Raw' : 'Beautify' }}
+              </button>
+              <button type="button"
+                      class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-700 dark:hover:text-white"
+                      (click)="copy()" [title]="copied() ? 'Copied!' : 'Copy to clipboard'">
+                <i class="bi" [class.bi-clipboard-check-fill]="copied()" [class.bi-clipboard]="!copied()"></i>
+                {{ copied() ? 'Copied' : 'Copy' }}
+              </button>
+              <button type="button"
+                      class="inline-flex items-center justify-center rounded-md px-2 py-1 text-zinc-500 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-700 dark:hover:text-white"
+                      (click)="close.emit()" title="Close">
+                <i class="bi bi-x-lg"></i>
+              </button>
+            </div>
           </div>
           <div class="lua-viewer overflow-auto p-3">
             <div class="lua-view">
@@ -47,11 +62,42 @@ export class LuaViewerComponent {
   readonly lua = input('');
   readonly close = output<void>();
 
-  readonly html = computed(() => this.highlight(this.lua()));
+  /** When true, run the source through beautifyLua (re-indent) before showing. */
+  readonly beautifyOn = signal(false);
+  /** Briefly true after a successful copy, for the button label/checkbox feedback. */
+  readonly copied = signal(false);
+
+  // Reset beautify state whenever the modal is (re)opened.
+  constructor() {
+    effect(() => {
+      if (this.open()) this.beautifyOn.set(false);
+    });
+  }
+
+  /** Source actually displayed: beautified when toggled on, raw otherwise. */
+  readonly displayLua = computed(() =>
+    this.beautifyOn() ? beautifyLua(this.lua()) : this.lua(),
+  );
+
+  readonly html = computed(() => this.highlight(this.displayLua()));
   readonly gutter = computed(() => {
-    const n = this.lua().split('\n').length;
+    const n = this.displayLua().split('\n').length;
     return Array.from({ length: n }, (_, i) => String(i + 1)).join('\n');
   });
+
+  toggleBeautify(): void {
+    this.beautifyOn.update((v) => !v);
+  }
+
+  async copy(): Promise<void> {
+    try {
+      await navigator.clipboard.writeText(this.displayLua());
+      this.copied.set(true);
+      setTimeout(() => this.copied.set(false), 1500);
+    } catch {
+      // clipboard API unavailable — ignore silently
+    }
+  }
 
   @HostListener('document:keydown.escape')
   onEscape(): void {
