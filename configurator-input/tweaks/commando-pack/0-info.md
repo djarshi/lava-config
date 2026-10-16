@@ -8,7 +8,7 @@ Note: unit names must contain `cormando` for the `unit_commando_watch.lua` gadge
 
 **Cortex (reworked)**
 - `cormando` — decluttered (build distance 200, no energy make/storage), cloak rank 2, corpse from `corfast`.
-- `cormandot4` — decluttered, cloak rank 3, corpse from `corshiva`, large generic explosion on death/self-destruct.
+- `cormandot4` — decluttered, cloak rank 3, corpse from `corshiva`, large generic explosion on death/self-destruct. Buildable from the Cortex T3 gantries `corgant` / `corgantuw`.
 
 **Armada — Vandal** (`acormando`, combat commando, from T2 lab `armalab`)
 - Cloned from `cormando`, remodeled to `LEGCOMOFF`. HP x1.5, speed 50, cloak rank 3, price x2.5 metal / x1.5 energy.
@@ -30,6 +30,10 @@ Note: unit names must contain `cormando` for the `unit_commando_watch.lua` gadge
 
 **Juno targeting**
 - Ground scouts, light air scouts and radar/jammer units are tagged with the `JUNOTARGET` category so the Legion Juno beam can prioritize them.
+
+## 1.3
+- Fixed `addBO`: it now iterates the `buildoptions` array and skips duplicates (the old check indexed the array with a string unit-id key, which never matched, so duplicate build options could accumulate on repeated application).
+- The Cortex Epic commando (`cormandot4`) is now buildable from the Cortex T3 gantries (`corgant` / `corgantuw`) — in 1.2 it was reworked but never wired into any lab.
 
 ## 1.2
 - Initial release of the four faction commando variants (Vandal, Epic Vandal, Saboteur, Epic Saboteur) plus the Cortex reworks and the Juno-target pass.
