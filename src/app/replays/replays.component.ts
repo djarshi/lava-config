@@ -48,7 +48,7 @@ interface LoadState {
           <label class="mb-1 block text-xs font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Map</label>
           <select class="w-full rounded-md border border-zinc-300 bg-white px-2 py-2 text-sm text-zinc-900 focus:border-lava-orange focus:outline-none dark:border-lava-border dark:bg-[#15171a] dark:text-zinc-100"
                   [ngModel]="mapFilter()" (ngModelChange)="mapFilter.set($event)">
-            @for (m of mapOptions; track m) {
+            @for (m of mapOptions(); track m) {
               <option [value]="m">{{ m }}</option>
             }
           </select>
@@ -150,7 +150,9 @@ export class ReplaysComponent {
   private readonly router = inject(Router);
   private readonly title = inject(Title);
 
-  readonly mapOptions = SUPREME_ISTHMUS_VERSIONS;
+  /** All known map scriptNames; seeded with the Supreme Isthmus fallback
+   *  until the async /maps load finishes (or if it fails). */
+  readonly mapOptions = signal<string[]>(SUPREME_ISTHMUS_VERSIONS);
   readonly limitOptions = [10, 25, 50];
 
   readonly mapFilter = signal('Supreme Isthmus v2.1');
@@ -172,8 +174,25 @@ export class ReplaysComponent {
 
   constructor() {
     this.title.setTitle('Replays — Lava configurator');
+    // Populate the map dropdown from the API (paginated, cached in the service).
+    void this.loadMaps();
     // Initial load with the preselected Supreme Isthmus map.
     this.load(1);
+  }
+
+  private async loadMaps(): Promise<void> {
+    try {
+      const maps = await this.api.getAllMaps();
+      const names = maps.map((m) => m.scriptName);
+      // Keep the currently-selected map selectable even if it's missing from
+      // the API response (shouldn't happen, but be safe).
+      if (this.mapFilter() && !names.includes(this.mapFilter())) {
+        names.unshift(this.mapFilter());
+      }
+      this.mapOptions.set(names);
+    } catch {
+      // Keep the Supreme Isthmus fallback list — the page still works.
+    }
   }
 
   async load(page: number): Promise<void> {
