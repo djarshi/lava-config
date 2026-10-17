@@ -7,7 +7,7 @@ import { ReplayApiService, ReplayListItem, ListOptions } from './replay-api.serv
 /**
  * Replays selector page. Lists recent games from the BAR replays API, with the
  * map preselected to a Supreme Isthmus version (the lava-config home map).
- * Clicking a row opens /replays/:gameId where the tweakdefs/tweakunits are
+ * Clicking a row opens /games/:gameId where the tweakdefs/tweakunits are
  * decoded and matched against the tweak library.
  */
 
@@ -299,7 +299,7 @@ export class ReplaysComponent {
   }
 
   open(id: string): void {
-    this.router.navigate(['/replays', id]);
+    this.router.navigate(['/games', id]);
   }
 
   // ---- formatting helpers ----

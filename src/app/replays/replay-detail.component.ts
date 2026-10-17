@@ -42,7 +42,7 @@ interface DetailState {
   imports: [RouterLink, LuaViewerComponent],
   template: `
     <section class="lava-panel">
-      <a routerLink="/replays" class="lava-btn-ghost mb-4 inline-flex !py-1 !px-2.5 text-xs">
+      <a routerLink="/games" class="lava-btn-ghost mb-4 inline-flex !py-1 !px-2.5 text-xs">
         <i class="bi bi-arrow-left"></i> Back to replays
       </a>
 

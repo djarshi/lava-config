@@ -133,7 +133,7 @@ export class AppComponent {
   readonly tabs: TabDef[] = [
     { path: '/configurator', label: 'Configurator', icon: 'bi-sliders2-vertical' },
     { path: '/tweaks', label: 'Tweak search', icon: 'bi-search' },
-    { path: '/replays', label: 'Games', icon: 'bi-camera-reels' },
+    { path: '/games', label: 'Games', icon: 'bi-camera-reels' },
     { path: '/encoder', label: 'Encoder', icon: 'bi-file-binary' },
     { path: '/links', label: 'Links', icon: 'bi-link-45deg' },
     { path: '/about', label: 'About & Credits', icon: 'bi-info-circle' },
