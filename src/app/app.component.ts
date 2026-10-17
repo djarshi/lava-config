@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { ThemeService } from './theme.service';
+import { UpdateToastComponent } from './update-toast/update-toast.component';
 
 interface TabDef {
   path: string;
@@ -11,7 +12,7 @@ interface TabDef {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, UpdateToastComponent],
   template: `
     <header
       class="sticky top-0 z-40 border-b border-lava-orange/40 bg-white/90 backdrop-blur dark:bg-[#111315]/90"
@@ -118,6 +119,7 @@ interface TabDef {
     <main class="mx-auto max-w-6xl px-4 py-6">
       <router-outlet />
     </main>
+    <app-update-toast />
   `,
   styles: [],
 })
