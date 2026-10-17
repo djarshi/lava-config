@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { marked } from 'marked';
 import { LuaViewerComponent } from '../lua-viewer/lua-viewer.component';
+import { LuaCodecService } from '../configurator/lua-codec.service';
 import tweaksData from '../configurator-data/tweaks.json';
 
 interface TweakAuthor {
@@ -74,6 +75,11 @@ interface Tweak {
                 <span class="ml-auto text-[0.65rem] text-zinc-400 dark:text-zinc-500">{{ byteSize(v.lua) }} bytes</span>
                 <button type="button" class="lava-btn-ghost px-2 py-0.5 text-xs" (click)="openVersionLua(t, v)">
                   <i class="bi bi-code-square"></i> View Lua
+                </button>
+                <button type="button" class="lava-btn-ghost px-2 py-0.5 text-xs" (click)="copyB64(v)"
+                        [title]="copiedVersion() === v.version ? 'Copied!' : 'Copy URL-safe Base64 of the minified tweak'">
+                  <i class="bi" [class.bi-clipboard-check-fill]="copiedVersion() === v.version" [class.bi-clipboard-plus]="copiedVersion() !== v.version"></i>
+                  {{ copiedVersion() === v.version ? 'Copied' : 'Copy b64' }}
                 </button>
               </li>
             }
@@ -169,6 +175,7 @@ export class TweakSearchComponent {
   private readonly route = inject(ActivatedRoute);
   private readonly router = inject(Router);
   private readonly title = inject(Title);
+  private readonly codec = inject(LuaCodecService);
 
   private readonly all = tweaksData.tweaks as unknown as Tweak[];
 
@@ -203,6 +210,8 @@ export class TweakSearchComponent {
   readonly viewerName = signal('');
   readonly viewerTitle = signal('');
   readonly viewerLua = signal('');
+  /** Version label that was just copied to the clipboard (briefly), for button feedback. */
+  readonly copiedVersion = signal('');
 
   readonly filtered = computed(() => {
     const q = this.query().trim().toLowerCase();
@@ -253,6 +262,20 @@ export class TweakSearchComponent {
 
   closeViewer(): void {
     this.viewerOpen.set(false);
+  }
+
+  /** Minify + URL-safe Base64-encode the version's Lua and copy it to the clipboard. */
+  async copyB64(v: TweakVersion): Promise<void> {
+    try {
+      const b64 = this.codec.encode(v.lua);
+      await navigator.clipboard.writeText(b64);
+      this.copiedVersion.set(v.version);
+      setTimeout(() => {
+        if (this.copiedVersion() === v.version) this.copiedVersion.set('');
+      }, 1500);
+    } catch {
+      // clipboard API unavailable or encode failed — ignore silently
+    }
   }
 
   // ---- helpers ----
