@@ -72,9 +72,12 @@ export class LuaViewerComponent {
 
   // Reset beautify state whenever the modal is (re)opened.
   constructor() {
-    effect(() => {
-      if (this.open()) this.beautifyOn.set(this.beautifyByDefault());
-    });
+    effect(
+      () => {
+        if (this.open()) this.beautifyOn.set(this.beautifyByDefault());
+      },
+      { allowSignalWrites: true },
+    );
   }
 
   /** Source actually displayed: beautified when toggled on, raw otherwise. */
