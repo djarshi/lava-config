@@ -15,6 +15,12 @@ An end-game air overhaul by Tyleno. Reworks a roster of T4/experimental aircraft
 - **Legion Rocket Siege Gunship** (`legmost3`) — 15000 metal, 18000 hp, speed 130. Heavy rocket (range 1050, 6-round burst, 500 dmg).
 - **Apex Tyrannus** (`legfortt4`) — 100000 metal, 200000 hp, speed 30, radar 2200, cruise alt 180. Triple plasma (range 1400, 1600 dmg), semiauto (range 900, fast 0.1 reload), AA missiles (range 1400, 300 vs air).
 
+**Other:** the Armada T3 Aircraft Plant (`armapt3`) borrows the Cortex T3 lab's (`corapt3`) model (`Units/CORAPT3.s3o`), script (`Units/CORAPT3.cob`), and collision volumes so it renders correctly.
+
+## 0.10
+- Fixed the Armada T3 Aircraft Plant (`armapt3`): it now uses the Cortex T3 air lab's model (`Units/CORAPT3.s3o`), script (`Units/CORAPT3.cob`), and collision volumes (copied from `corapt3`), so the Armada T3 air lab renders correctly instead of a broken/missing model — the "Songi" fix.
+- Otherwise formatting only (aligned assignments + per-unit section headers); no balance changes vs 0.9.
+
 ## 0.9
 - Removed the Hornet (`armblade`) rework — it's no longer touched by this tweak. No other balance changes; formatting only.
 
