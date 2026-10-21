@@ -26,9 +26,9 @@ Categorization runs after weapon setup so weapon target categories are authorita
 - Generic screamer vtol damage ×1.5 (was ×2).
 
 ## 1.4.5
-- Commander now gains paratrooper via the evolution timer (~10 min, or the first lava tide) instead of being gated only by the slow-transport toggle. The evolved `*pt` variant gets `paratrooper = true` and `armordef = 'commanders'`; announcement changed to "Commander Paratrooper Unlocked".
-- Removed the Epic Dragon (Snowflake / `corcrwt4`) special pricing block — it now follows the normal air-price rules.
-- Formatting pass: semicolons, dropped section comments, line reflow. No other balance changes.
+- Commander paratrooper gating reworked onto the commander evolution system: the base commander (`evocomlvl = 1`) evolves into the paratrooper variant (`armcompt` / `corcompt` / `legcompt`, `evocomlvl = 2`) after the evolution timer — the first lava tide, or 10 min by default (`evocomleveluptime`). The variant retains the `armordef = 'commanders'` armour class. This replaces the earlier flat `paratrooper = true` flag and the 1.4.2 slow-transport (`comm_trans_slow`) gate.
+- Epic Dragon (`corcrwt4`) now explicitly handled in the air-price section ("Snowflake price includes Epic Dragon"): health ×1.5, speed ×0.675, and the air-price tax applied (metal ×2, energy ×1, buildtime ×1.5) on top of the T3-air-rework's static values.
+- Formatting pass: semicolons dropped, `UnitDefs` aliased to a local `uDefs`, section comments added/renamed. No other balance changes.
 
 ## 1.4.2
 - Interim version with the slow-transport commander gate (`comm_trans_slow`) and the Epic Dragon pricing override still in place.
