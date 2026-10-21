@@ -1,16 +1,65 @@
 # QoL Pack
 
-Quality-of-life patch by Zop (Quad Pharos pick by MGGW). Covers converters, AFUS tuning, point-defense and mini-experimental balance — aimed at smoother lava economy flow.
+A combination and extension of frequently-used tweaks.
+Deletes Pawn Launcher from game and UI.
+
+# Current effect
+
+**Advanced Option Extensions**
+Deletes the following units from the game and UI when disabled in advanced options:
+- LRPCs and LRPC units.
+- Endgame LRPCs.
+- Tactical silos.
+- Nuclear silos, units, and anti-nukes. (Re-enables Rampart)
+
+**Lava Sea**
+If `Water Is Lava`
+- Deletes all sea units from UI.
+- Disables air landing in water.
+If `Lava Tides + Low Tide Level = 0`
+- Hovercraft are safe on lava. (Low Tide)
+- Enables non-eco sea platforms on lava.
+
+**Pilum Nerf**
+- Mining Tool damage / AoE reduced to 25%.
+
+**Behemoth Nerf**
+- Can be paralyzed.
+- 200% metal cost. (40,000)
+If `Disable Air Units`
+- +100% additional metal cost. (60,000)
+
+**Nano Turret Reclaim Nerf**
+- Reclaims at (√BP) * 22.5 speed. (Weakens rapidly beyond 500 build power.)
+
+**Pulsar**
+- Shields cannot be disabled.
+
+**Smaller Wrecks**
+- 75% wreck size.
+- Disable Air Units reduces to 25% wreck size.
+- T3 units larger than Thor / Titan can now crush any unit wreckage. (Excludes commanders.)
+
+**Extra Towers**
+Requires `Scavengers Units Pack`
+- Adds Legion T4 tower.
+- Adds Cortex / Armada quad towers.
+- Increases range of mini LRPCs.
+- Increases damage of Armada / Cortex mini LRPCs to compete with Legion.
+
+**Base Builder Turret**
+- Upgraded to commander armor. (Immune to DGun.)
+
+**Tactical Missiles**
+- EMP now builds missiles the slowest.
+- Cortex missiles deal 250% damage to shields.
+- Legion missiles deal 750% damage to shields.
 
 ## 1.5
-- **Mini plasma 'Cerberus' alternatives** (`armminivulc` / `corminibuzz` / `legministarfall`): prices raised via the new `mulPrice` helper (metal ×2, energy ×5), and `corminibuzz` is now also added to the Cortex cons build options.
-- **Mini plasma range retune**: `corminibuzz` range ×1.3 (was ×1.25); `armminivulc` and `legministarfall` ×1.25. Cross-faction range-balance offsets adjusted to match (Cortex baseline +60, Armada −45, Legion −20 vs the Cortex range).
-- **Legion epic defense** (`legdoomt3` railgun, `armagmheat`): default damage explicitly set to **5000**.
-- Removed the `armannit3` (Annihilation T3) `unitmidpos`/`unitaimpos` positioning tweak; renamed the "Pulsar vs Pulsar" section to "Pulsar Problems".
-- Refactor: extracted a shared `mulPrice(def, mMul, eMul)` helper for metal/energy/buildtime scaling, and switched several `UnitDefs` lookups to a local `uDefs` alias.
-
-## 1.4
-- Prior release (converters / AFUS tuning / Quad Pharos pick work).
+- Mini LRPC 200% metal cost, 500% energy cost.
+- Added Cortex Mini LRPC back to advanced constructors.
+- Increased range of Cortex Mini LRPC. (+70)
+- Reduced railgun damage of Legion T4 tower from 6000 to 5000.
 
 ## 1.1.1
-- Initial tracked release.
+Quality-of-life patch (v1.1.1) by Zop. Covers converters, AFUS tuning and the Quad Pharos pick (with MGGW). Aimed at smoother lava economy flow.
