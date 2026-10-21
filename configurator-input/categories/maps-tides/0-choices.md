@@ -13,7 +13,7 @@ Islands have some buildspace for AA/lrpcs if on. This allows for some more tacti
 !bSet map_lavahighdwell 600
 !bSet map_lavalowdwell 10000
 !bSet map_waterlevel -26
-!bSet map_lavahighlevel 56
+!bSet map_lavahighlevel 54
 !bSet map_lavalowlevel 0
 !bSet map_lavatidemode lavastarthigh
 !bset debugcommands extremebelow -25 0.125
