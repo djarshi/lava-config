@@ -17,7 +17,8 @@ An end-game air overhaul by Tyleno. Reworks a roster of T4/experimental aircraft
 
 **Other:** the Armada T3 Aircraft Plant (`armapt3`) borrows the Cortex T3 lab's (`corapt3`) model (`Units/CORAPT3.s3o`), script (`Units/CORAPT3.cob`), and collision volumes so it renders correctly.
 
-## 0.10
+## 1.0
+- Released as v1.0 (renamed from v0.10; no functional changes — same file, just the version bump to 1.0). Songi joins Tyleno as co-developer.
 - Fixed the Armada T3 Aircraft Plant (`armapt3`): it now uses the Cortex T3 air lab's model (`Units/CORAPT3.s3o`), script (`Units/CORAPT3.cob`), and collision volumes (copied from `corapt3`), so the Armada T3 air lab renders correctly instead of a broken/missing model — the "Songi" fix.
 - Otherwise formatting only (aligned assignments + per-unit section headers); no balance changes vs 0.9.
 

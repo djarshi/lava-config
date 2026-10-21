@@ -1,4 +1,4 @@
--- T3 Air Rework v0.10 (Tyleno)
+-- T3 Air Rework v1.0 (Tyleno)
 -- Fixed T3 Arm Air Lab (Songi) + various experimental air unit buffs (Tyleno)
 
 local U = UnitDefs
