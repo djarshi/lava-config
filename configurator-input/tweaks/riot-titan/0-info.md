@@ -6,7 +6,7 @@ A new shielded riot mech by Zop. Clones the Legion T2 commander chassis onto the
 
 **Riot Titan** (`armbanthx`) — built by copying `legcomt2def` and merging in `armbanth`:
 - Identity: name "Riot Titan", tooltip "Heavy-Shielded Riot Mech", icon `armbanth`.
-- Commander properties removed: `iscommander = nil`, no player name shown, not a builder (`workertime` / `terraformspeed` = 0, empty `buildoptions`, `cancapture = false`), but `capturable` and `reclaimable`.
+- Commander properties removed: `iscommander = nil`, `tombstone = nil` (no commander gravestone on death), no player name shown, not a builder (`workertime` / `terraformspeed` = 0, empty `buildoptions`, `cancapture = false`), but `capturable` and `reclaimable`.
 - Costs: metal ×1.4, energy ×2.5, buildtime ×1.95. No radar/sonar. `explodeas = mistexploxxl`, `paralyzemultiplier = 0.2` (very hard to stun).
 
 **Shield** (repulsor weapon):
@@ -22,6 +22,9 @@ A new shielded riot mech by Zop. Clones the Legion T2 commander chassis onto the
 - 3 projectiles, spray 3600, `commandfire = false`, reload ×1.5, range 500 (matches arms), weapon velocity ×0.5 of arms, 10000 dmg, sound `lasfirerb`. Targets `SURFACE EMPABLE` (excludes VTOL / `GROUNDSCOUT`).
 
 **Build menu**: added to `armshltx` and `armshltxuw` (Armada T3 strategic lab + underwater variant).
+
+## 1.1
+- Clear the `tombstone` customparam on the Riot Titan (`def[cps].tombstone = nil`) so it no longer leaves a commander tombstone on death — the unit is cloned from the Legion T2 commander chassis, which carries one. No other changes.
 
 ## 1.0
 - Initial release: the Riot Titan unit with energy-fed shield, riot-gun arms, thunder shoulder laser, and EMP backpack, unlocked from the Armada T3 labs.
