@@ -44,6 +44,7 @@ This version is stronger in terms of eco. However this will flatten out differen
 !bSet startmetalstorage 4000
 !bSet startenergy 3000
 !bSet startmetal 3000
+!bSet forceallunits 1
 ```
 
 
@@ -121,5 +122,6 @@ Remember the enemy of strategy is too much Eco
 !bSet map_waterislava 1
 !welcome-message Welcome to 🌋Lava🌋 Please take time to learn the gamemode before complaining $$ Key differences from vanilla are: $$ BASE BUDGET - Build your initial base with the budget to make early game faster. $$ LAVA DROPS AT 10M - the lava in middle drops, so use the time to scale but be wary of air attacks. $$ PARATROOPERS - All units in transports drop when it dies, like paratroopers. $$ EXTENDED ECO - T3 Mexes/Geo/Fusion/Converters, so look for them in the T2 Economy Tab. $$ UNIT CHANGES - More powerful units from Experimental Gantries, and a 16M Metal NUKE with no AN $$ Made using https://djarshi.github.io/lava-config/#/configurator $$ Come join the fun here at https://discord.gg/scswj7nZmw and check your rank here at https://lavabalance.fogofwar.dev/ranking. $$ ============== $$ ROLES IN LAVA $$ ============== $$ FRONTS - STATIC DEFENSE PRODUCER $$ POND & TECH/GEO - UNIT PRODUCER $$ BOTH SEAS - AIR UNITS PRODUCER $$ BACK LINE - SUPPORT AS NEEDED OR AIR 🌋 $$ Please dont changew settings and let bosses manage it, they know as this is special tweaked lobby
 !bSet quick_start factory_discount
+!bSet forceallunits 1
 
 ```
