@@ -19,6 +19,16 @@ After a while we did separate out some tweaks. This tweak is often used in conju
 - Pawn launcher & unit cannons are removed.
 - Disables sea lab functions if LAVA
 - T2 air of other races in experimental aircraft plant
+- T3 Advanced Fusions (armafust3/corafust3/legafust3) produce 15% less energy
+- All transports are 33% slower
+- Base builders reclaim at 2/3 of their build power
+- On lava maps commanders have 20% less health
+
+## 5.3
+ - T3 Advanced Fusion reactors (`armafust3` / `corafust3` / `legafust3`): energy output reduced by 15% (applied after the mulAfus scaling; tooltips update automatically since they read `energymake`).
+ - All transports (`transportcapacity > 0`, air and sea) have their speed reduced by 33% (`speed * 0.67`).
+ - Base builders (`armrespawn` / `correspawn` / `legnanotcbase`) now reclaim at 2/3 of their build power (`reclaimspeed = workertime * 2/3`), matching the epic construction turret's ratio. Their `workertime` comes from the `commanderbuildersbuildpower` modoption.
+ - On lava maps (`map_waterislava`) all commanders — every unit tagged `customparams.iscommander`, base and evolution levels — get `health * 0.8`, so lava (and everything else) hurts 25% more in practice.
 
 ## 5.2
  - New unit: Legendary Energy Converter (`legendaryenergyconverter`, cloned from `legadveconv`) — converts 30,000 energy into 750 metal/s, limit 5, cloaked + stealthed (sonar stealth too), 10k hp, radar 2500, built from all three factions' T2 cons (aca/ack/acv) via `addC`.
