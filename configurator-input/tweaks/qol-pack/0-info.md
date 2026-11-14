@@ -47,6 +47,9 @@ Requires `Scavengers Units Pack`
 - Increases range of mini LRPCs.
 - Increases damage of Armada / Cortex mini LRPCs to compete with Legion.
 
+**Epic Pulsar Range**
+- Main weapon range capped at the T2 pulsar's range + 75: Epic Pulsar (`armannit3`) 1800 → 1475, Epic Bulwark (`cordoomt3`) 1350 → 1025, Legion Trident (`legdoomt3`, mirrors Cortex) → 1025. Damage and all other stats unchanged.
+
 **Base Builder Turret**
 - Upgraded to commander armor. (Immune to DGun.)
 
@@ -54,6 +57,9 @@ Requires `Scavengers Units Pack`
 - EMP now builds missiles the slowest.
 - Cortex missiles deal 250% damage to shields.
 - Legion missiles deal 750% damage to shields.
+
+## 1.6
+- Epic pulsar range nerf (by Djarshi): the main weapons of the Epic Pulsar (`armannit3`), Epic Bulwark (`cordoomt3`) and Legion Trident (`legdoomt3`) are capped at their race's T2 pulsar range + 75. Armada reads `armanni.ata` (1400 → 1475, was 1800), Cortex and Legion read `cordoom.atadr` (950 → 1025, was 1350). Damage, AoE, reload and costs untouched.
 
 ## 1.5
 - Mini LRPC 200% metal cost, 500% energy cost.
