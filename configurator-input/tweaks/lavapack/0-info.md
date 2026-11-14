@@ -10,7 +10,7 @@ After a while we did separate out some tweaks. This tweak is often used in conju
 - Changes epic converter size to footprint of an AFUS.
 - Adds Epic Metal extractor (costly to keep functioning tho -500 E/s)
 - Adds Epic Geothermal powerplant with shield. (Stargate Atlantis style)
-- Adds Epic construction turret 3000BP and a slight reduced 2000 reclaim.
+- Adds Epic construction turret 3000BP, 2000 reclaim and 50% repair speed.
 - Adds Legendary AFUS (MAX 1 per player)
 - Adds Legendary Energy Converter (converts 30,000 energy into 750 metal/s, limit 5, cloaked/stealthed, built from all T2 cons)
 - Adds Roomba (epic battlefield vacuum, 4000 BP, speed 290, built from T3 air plants)
@@ -27,7 +27,7 @@ After a while we did separate out some tweaks. This tweak is often used in conju
 ## 5.3
  - Epic Fusion Reactors (`armafust3` / `corafust3` / `legafust3`, the T3 fusions — not the T2 Advanced Fusion Reactors): energy output reduced by 15% (applied after the mulAfus scaling; tooltips update automatically since they read `energymake`).
  - All transports (`transportcapacity > 0`, air and sea) have their speed reduced by 33% (`speed * 0.67`).
- - Base builders (`armrespawn` / `correspawn` / `legnanotcbase`) now reclaim at 2/3 of their build power (`reclaimspeed = workertime * 2/3`, like the epic construction turret) and repair at 50% (`repairspeed = workertime * 0.5`). Their `workertime` comes from the `commanderbuildersbuildpower` modoption.
+ - Base builders (`armrespawn` / `correspawn` / `legnanotcbase`) now reclaim at 2/3 of their build power (`reclaimspeed = workertime * 2/3`, like the epic construction turret) and repair at 50% (`repairspeed = workertime * 0.5`). Their `workertime` comes from the `commanderbuildersbuildpower` modoption. The Epic Construction Turrets (`armnanotct3` / `cornanotct3` / `legnanotct3`) also repair at 50% of their build power (1500 at 3000 BP).
  - On lava maps (`map_waterislava`) all commanders — every unit tagged `customparams.iscommander`, base and evolution levels — lose their passive auto-heal (`autoheal` / `idleautoheal` set to 0; the base value is 5 hp/s), so lava damage sticks.
 
 ## 5.2

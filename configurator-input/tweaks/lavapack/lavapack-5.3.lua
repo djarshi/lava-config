@@ -568,3 +568,11 @@ for _, id in ipairs({"armrespawn", "correspawn", "legnanotcbase"}) do
         bb.repairspeed = (bb.workertime or 0) * 0.5
     end
 end
+
+-- v5.3: epic construction turrets also repair at 50% of their build power.
+for _, id in ipairs({"armnanotct3", "cornanotct3", "legnanotct3"}) do
+    local t3 = uDefs[id]
+    if t3 then
+        t3.repairspeed = (t3.workertime or 0) * 0.5
+    end
+end
