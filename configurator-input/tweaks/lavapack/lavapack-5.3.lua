@@ -385,11 +385,12 @@ if noSea then
         end
     end
 end
--- v5.3: on lava maps commanders have 20% less health, so lava hurts more.
+-- v5.3: on lava maps commanders lose their auto-heal, so lava damage sticks.
 if noSea then
     for _, uDef in pairs(uDefs) do
         if uDef[cps] and uDef[cps].iscommander then
-            uDef.health = uDef.health * 0.8
+            uDef.autoheal = 0
+            uDef.idleautoheal = 0
         end
     end
 end
@@ -559,10 +560,11 @@ for _, uDef in pairs(uDefs) do
 end
 
 -- v5.3: base builders (armrespawn / correspawn / legnanotcbase) reclaim at
--- 2/3 of their build power, matching the epic construction turret.
+-- 2/3 of their build power (like the epic turret) and repair at only 50%.
 for _, id in ipairs({"armrespawn", "correspawn", "legnanotcbase"}) do
     local bb = uDefs[id]
     if bb then
         bb.reclaimspeed = (bb.workertime or 0) * 2 / 3
+        bb.repairspeed = (bb.workertime or 0) * 0.5
     end
 end

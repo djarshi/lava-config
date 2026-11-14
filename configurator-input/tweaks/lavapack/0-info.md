@@ -19,16 +19,16 @@ After a while we did separate out some tweaks. This tweak is often used in conju
 - Pawn launcher & unit cannons are removed.
 - Disables sea lab functions if LAVA
 - T2 air of other races in experimental aircraft plant
-- T3 Advanced Fusions (armafust3/corafust3/legafust3) produce 15% less energy
+- Epic Fusion Reactors (armafust3/corafust3/legafust3) produce 15% less energy
 - All transports are 33% slower
-- Base builders reclaim at 2/3 of their build power
-- On lava maps commanders have 20% less health
+- Base builders reclaim at 2/3 and repair at 50% of their build power
+- On lava maps commanders don't auto-heal
 
 ## 5.3
- - T3 Advanced Fusion reactors (`armafust3` / `corafust3` / `legafust3`): energy output reduced by 15% (applied after the mulAfus scaling; tooltips update automatically since they read `energymake`).
+ - Epic Fusion Reactors (`armafust3` / `corafust3` / `legafust3`, the T3 fusions — not the T2 Advanced Fusion Reactors): energy output reduced by 15% (applied after the mulAfus scaling; tooltips update automatically since they read `energymake`).
  - All transports (`transportcapacity > 0`, air and sea) have their speed reduced by 33% (`speed * 0.67`).
- - Base builders (`armrespawn` / `correspawn` / `legnanotcbase`) now reclaim at 2/3 of their build power (`reclaimspeed = workertime * 2/3`), matching the epic construction turret's ratio. Their `workertime` comes from the `commanderbuildersbuildpower` modoption.
- - On lava maps (`map_waterislava`) all commanders — every unit tagged `customparams.iscommander`, base and evolution levels — get `health * 0.8`, so lava (and everything else) hurts 25% more in practice.
+ - Base builders (`armrespawn` / `correspawn` / `legnanotcbase`) now reclaim at 2/3 of their build power (`reclaimspeed = workertime * 2/3`, like the epic construction turret) and repair at 50% (`repairspeed = workertime * 0.5`). Their `workertime` comes from the `commanderbuildersbuildpower` modoption.
+ - On lava maps (`map_waterislava`) all commanders — every unit tagged `customparams.iscommander`, base and evolution levels — lose their passive auto-heal (`autoheal` / `idleautoheal` set to 0; the base value is 5 hp/s), so lava damage sticks.
 
 ## 5.2
  - New unit: Legendary Energy Converter (`legendaryenergyconverter`, cloned from `legadveconv`) — converts 30,000 energy into 750 metal/s, limit 5, cloaked + stealthed (sonar stealth too), 10k hp, radar 2500, built from all three factions' T2 cons (aca/ack/acv) via `addC`.
@@ -39,7 +39,7 @@ After a while we did separate out some tweaks. This tweak is often used in conju
 
 ## 5.1
  - New: setDesc helper — writes i18n_<lang>_humanname/_tooltip across en/fr/de/es.
- - New: T3 Advanced Fusion reactors (armafust3/corafust3/legafust3) are now scaled from their T2 fusion via mulAfus:
+ - New: Epic Fusion Reactors (armafust3/corafust3/legafust3, in-game "Epic Fusion Reactor") are now scaled from their T2 Advanced Fusion via mulAfus:
      - hp x1.5, energymake x10, buildtime = T2 x 10 x 0.75, cost x8, custom explosion.
      - Arm T3 fusion gets energystorage x 1.5 and stealth = true (faction flavor).
      - All three get localized tooltips showing their energy output.
