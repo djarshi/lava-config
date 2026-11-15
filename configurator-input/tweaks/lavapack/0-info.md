@@ -25,7 +25,7 @@ After a while we did separate out some tweaks. This tweak is often used in conju
 - On lava maps commanders don't auto-heal
 
 ## 5.4
- - Epic Fusion Reactors (`armafust3` / `corafust3` / `legafust3`) rebalanced: output is now exactly x8 the T2 Advanced Fusion (was x10 with a separate 15% reduction = x8.5), costs x7.2 (was x8 — 10% cheaper) and buildtime follows the scale at x6 (was x7.5). The v5.3 15% output-reduction block is removed — the reduction is baked into the x8. Legendary AFUS (`afuslegendary`) unchanged.
+ - Epic Fusion Reactors (`armafust3` / `corafust3` / `legafust3`) rebalanced: output is x8 and costs x7.2 and build time is x6 (compared to T2 AFUS), instead of the 15% output reduction which made the build time quite high compared to cost.
 
 ## 5.3
  - Epic Fusion Reactors (`armafust3` / `corafust3` / `legafust3`, the T3 fusions — not the T2 Advanced Fusion Reactors): energy output reduced by 15% (applied after the mulAfus scaling; tooltips update automatically since they read `energymake`).
