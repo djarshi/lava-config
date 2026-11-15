@@ -139,6 +139,10 @@ interface UsedTweakRow {
                   @for (label of t.labels; track label) {
                     <span class="font-mono text-[10px] rounded px-1.5 py-0.5 bg-zinc-200/70 text-zinc-600 dark:bg-[#25272a] dark:text-zinc-300" title="Output line: !bset {{ label }}">{{ label }}</span>
                   }
+                  <a class="lava-btn-ghost px-2 py-0.5 text-xs" [routerLink]="['/tweaks', t.name]"
+                     title="Open in the tweak library">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                  </a>
                   <button type="button" class="lava-btn-ghost px-2 py-0.5 text-xs"
                           (click)="openLuaView(t.name)" title="View Lua source">
                     <i class="bi bi-code-square"></i> View

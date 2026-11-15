@@ -72,7 +72,7 @@ interface DetailState {
               </a>
             </p>
           </div>
-          <div class="flex flex-wrap gap-2 text-xs">
+          <div class="flex flex-wrap items-center gap-2 text-xs">
             <span class="rounded bg-emerald-500/15 px-2 py-1 font-semibold text-emerald-600 dark:text-emerald-400">
               {{ summary.exact }} library exact
             </span>
@@ -82,6 +82,11 @@ interface DetailState {
             <span class="rounded bg-zinc-500/15 px-2 py-1 font-semibold text-zinc-600 dark:text-zinc-300">
               {{ summary.unknown }} other
             </span>
+            <button type="button" class="lava-btn-ghost px-2.5 py-1 text-xs" (click)="copySettings()"
+                    title="Copy every game setting (map options, multipliers, tweaks — everything) as !bset lines you can re-apply in the lobby">
+              <i class="bi" [class.bi-clipboard-check-fill]="settingsCopied()" [class.bi-clipboard-plus]="!settingsCopied()"></i>
+              {{ settingsCopied() ? 'Copied!' : 'Copy settings' }}
+            </button>
           </div>
         </div>
 
@@ -201,6 +206,8 @@ export class ReplayDetailComponent {
   readonly viewerName = signal('');
   readonly viewerTitle = signal('');
   readonly viewerLua = signal('');
+  /** Briefly true after copying all settings, for the button feedback. */
+  readonly settingsCopied = signal(false);
 
   readonly slots = computed<Slot[]>(() => {
     const r = this.state().replay;
@@ -301,6 +308,43 @@ export class ReplayDetailComponent {
 
   closeViewer(): void {
     this.viewerOpen.set(false);
+  }
+
+  /** Copy every gameSetting (map options, multipliers, tweaks — everything)
+   *  as `!bset <key> <value>` lines, the same command format the configurator
+   *  emits, so the whole setup can be re-applied in a lobby. Regular settings
+   *  come first, tweak slots last (ordered by slot index), mirroring the
+   *  configurator's output layout. */
+  async copySettings(): Promise<void> {
+    const r = this.state().replay;
+    if (!r) return;
+    const gs = r.gameSettings ?? {};
+    const setLines: string[] = [];
+    const tweaks: { kind: string; index: number; line: string }[] = [];
+    for (const [key, value] of Object.entries(gs)) {
+      const v = (value ?? '').toString();
+      if (!v) continue; // skip empty values
+      const kind = key.startsWith('tweakdefs') ? 'tweakdefs'
+        : key.startsWith('tweakunits') ? 'tweakunits' : '';
+      if (kind) {
+        if (v.length < 4) continue; // skip placeholder slots (e.g. "tweakdefs8 0")
+        const index = key === kind ? 0 : parseInt(key.slice(kind.length), 10) || 0;
+        tweaks.push({ kind, index, line: `!bset ${key} ${v}` });
+      } else {
+        setLines.push(`!bset ${key} ${v}`);
+      }
+    }
+    tweaks.sort((a, b) => a.kind.localeCompare(b.kind) || a.index - b.index);
+    const tweakLines = tweaks.map((t) => t.line);
+    const out = [...setLines, ...[''], ...tweakLines].join('\n');
+    if (!setLines.length && !tweakLines.length) return;
+    try {
+      await navigator.clipboard.writeText(out);
+      this.settingsCopied.set(true);
+      setTimeout(() => this.settingsCopied.set(false), 1500);
+    } catch {
+      // clipboard unavailable — ignore
+    }
   }
 
   // ---- formatting ----
